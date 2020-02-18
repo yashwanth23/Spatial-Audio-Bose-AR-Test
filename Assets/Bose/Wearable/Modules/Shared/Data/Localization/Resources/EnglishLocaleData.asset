@@ -1,0 +1,127 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a5ac2c626343ad4f9a4466697db8cba, type: 3}
+  m_Name: EnglishLocaleData
+  m_EditorClassIdentifier: 
+  _localeKVPs:
+  - key: BoseARUnitySDK.Bluetooth
+    value: Bluetooth
+  - key: BoseARUnitySDK.ConnectActionCancel
+    value: Cancel
+  - key: BoseARUnitySDK.ConnectActionReconnect
+    value: Reconnect
+  - key: BoseARUnitySDK.ConnectActionSearch
+    value: Search
+  - key: BoseARUnitySDK.ConnectingMessage
+    value: Device connecting...
+  - key: BoseARUnitySDK.ConnectionFailure
+    value: Device failed to connect!
+  - key: BoseARUnitySDK.ConnectionSuccess
+    value: Device connected successfully!
+  - key: BoseARUnitySDK.GeneralPermissionRequiredMessage
+    value: We need {0} permission before we can continue. Go to your device's Settings
+      menu and allow {0} for this app so we can connect your products.
+  - key: BoseARUnitySDK.Location
+    value: Location Services
+  - key: BoseARUnitySDK.PermissionFailureMessage
+    value: Searching for devices failed. {0} permissions are required.
+  - key: BoseARUnitySDK.PermissionRequiredTitle
+    value: '{0} Permission Required'
+  - key: BoseARUnitySDK.ReconnectionMessage
+    value: Device disconnected, please reconnect
+  - key: BoseARUnitySDK.RequestPermission
+    value: Request Permission
+  - key: BoseARUnitySDK.SensorServiceSuspensionReasonMultiPointMessage
+    value: We noticed that your QC35 II headphones are connected to another device.
+      To get the full Bose AR experience, you'll have to disconnect from the other
+      device.
+  - key: BoseARUnitySDK.SensorServiceSuspensionReasonMusicSharingMessage
+    value: To experience Bose AR, your AR-enabled product cannot be sharing music
+      with another product. End Music Share to continue using Bose AR.
+  - key: BoseARUnitySDK.SensorServiceSuspensionReasonUnknownMessage
+    value: Bose AR is disabled temporarily when you are using a voice assistant or
+      indefinitely while you are connected to a secondary device through Music Share
+      or multi-point connectivity.
+  - key: BoseARUnitySDK.SensorServiceSuspensionReasonVoiceAssistantMessage
+    value: Bose AR is disabled when you are using your voice assistant. Your AR experience
+      should resume shortly.
+  - key: BoseARUnitySDK.SensorServiceSuspensionReasonOTAFirmwareUpdate
+    value: Your product is updating. When it's done, you can use Bose AR. Check the
+      update status in the Bose Connect app.
+  - key: BoseARUnitySDK.SensorServiceSuspensionUITitle
+    value: Hang on...
+  - key: BoseARUnitySDK.ServiceFailureMessage
+    value: Searching for devices failed. {0} is required to be enabled.
+  - key: ConnectionTask.authorizationRequiredMessage
+    value: We need Bluetooth permission before we can continue. Go to your device's
+      Settings menu and allow Bluetooth Sharing for this app so we can connect your
+      products.
+  - key: ConnectionTask.locationAuthorizationRequiredMessage
+    value: We need Location Services permission before we can continue. Go to your
+      device's Settings menu and allow Location Services for this app so we can connect
+      your products.
+  - key: ConnectionTask.authorizationRequiredTitle
+    value: Bluetooth Permission Required
+  - key: ConnectionTask.locationAuthorizationRequiredTitle
+    value: Location Permission Required
+  - key: ConnectionTask.continueWithoutBoseAR
+    value: Continue Without Bose AR
+  - key: ConnectionTask.continueWithoutUpdatingTitle
+    value: Continue Without Update
+  - key: ConnectionTask.noBluetoothMessage
+    value: We need Bluetooth enabled on this device so we can connect your Bose AR-enabled
+      product. Turn on Bluetooth in the Control Center or in Settings.
+  - key: ConnectionTask.noLocationMessage
+    value: We need Location Services enabled on this device so we can connect your
+      Bose AR-enabled product. Turn on Location Services in the Control Center or
+      in Settings.
+  - key: ConnectionTask.noBluetoothTitle
+    value: Turn on Bluetooth
+  - key: ConnectionTask.noLocationTitle
+    value: Turn on Location Services
+  - key: ConnectionTask.openTheApp
+    value: Open {0}
+  - key: ConnectionTask.tryAgain
+    value: Try Again
+  - key: ConnectionTask.updateAvailableMessage
+    value: To get the most out of your Bose AR-enabled product, update it in the {0}
+      app.
+  - key: ConnectionTask.updateAvailableTitle
+    value: Update available
+  - key: ConnectionTask.updateRequiredMessage
+    value: "Before you can experience all of the advanced capabilities featured in
+      Bose AR, you\u2019ll need to update your product in the {0} app."
+  - key: ConnectionTask.updateRequiredTitle
+    value: Update required
+  - key: ConnectUISearch.description
+    value: Make sure your Bose AR-enabled product is powered on and within 30 feet
+      of this device.
+  - key: ConnectUISearch.title
+    value: Select your Bose AR product
+  - key: FirmwareUpdateApp.boseConnect
+    value: Bose Connect
+  - key: FirmwareUpdateApp.boseMusic
+    value: Bose Music
+  - key: SecurePairingSubtask.defaultSecurePairingPromptMessage
+    value: Press and hold the Power/Bluetooth button for 1 second to connect your
+      product. When prompted, select Pair to finish connecting.
+  - key: SecurePairingSubtask.securePairingPromptTitle
+    value: Almost connected
+  _supportedLanguages: 0a000000
+  _overrideFontAsset: {fileID: 11400000, guid: c41cef527f5b37947a651572b5a40d5a, type: 2}
+  _fontStyles:
+  - _id: {fileID: 11400000, guid: d103facc69fcf1d44a8621b0208977f5, type: 2}
+    _tmpFontAsset: {fileID: 11400000, guid: 0e088f19b99ec4a42884dd4bc54e0969, type: 2}
+  - _id: {fileID: 11400000, guid: 43f68e16c302c7640a62503c1faf410a, type: 2}
+    _tmpFontAsset: {fileID: 11400000, guid: c41cef527f5b37947a651572b5a40d5a, type: 2}
+  - _id: {fileID: 11400000, guid: 4b2753d1aeaddc94195f0334c67d174b, type: 2}
+    _tmpFontAsset: {fileID: 11400000, guid: 0e088f19b99ec4a42884dd4bc54e0969, type: 2}

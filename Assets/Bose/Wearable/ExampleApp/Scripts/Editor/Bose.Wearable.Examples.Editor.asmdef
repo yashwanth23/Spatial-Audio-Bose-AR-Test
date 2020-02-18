@@ -1,0 +1,11 @@
+{
+    "name": "Bose.Wearable.Examples.Editor",
+    "references": [
+        "Bose.Wearable",
+        "Bose.Wearable.Editor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": []
+}

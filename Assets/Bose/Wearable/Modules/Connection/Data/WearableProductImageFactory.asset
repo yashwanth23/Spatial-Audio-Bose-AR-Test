@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 802dcc41397f426d85c0fd6358656f24, type: 3}
+  m_Name: WearableProductImageFactory
+  m_EditorClassIdentifier: 
+  _fallbackBackgroundImage:
+    productTourSprite: {fileID: 21300000, guid: 3d81fce76f82c604bb0fe591eb338de8,
+      type: 3}
+    pointOfInterestAnchor: {x: 0.6625, y: 0.3425}
+  _productMappings:
+  - productTourSprite: {fileID: 21300000, guid: 3d81fce76f82c604bb0fe591eb338de8,
+      type: 3}
+    pointOfInterestAnchor: {x: 0.6625, y: 0.3425}
+    productType: 3
+  _variantMappings: []

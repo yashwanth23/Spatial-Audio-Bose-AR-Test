@@ -1,0 +1,40 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Logging
+import Foundation
+@_exported import Logging
+import Swift
+import os
+public class Log {
+  public static let `default`: Logging.Log
+  public var isEnabled: Swift.Bool
+  convenience public init(subsystem: Swift.String, category: Swift.String, formatter: Logging.LogFormatter = DefaultLogFormatter(), isEnabled: Swift.Bool)
+  @objc deinit
+}
+extension Log {
+  public func msg(_ message: @autoclosure () -> Swift.String, file: Swift.StaticString = #file, function: Swift.StaticString = #function, line: Swift.UInt = #line)
+  public func info(_ message: @autoclosure () -> Swift.String, file: Swift.StaticString = #file, function: Swift.StaticString = #function, line: Swift.UInt = #line)
+  public func debug(_ message: @autoclosure () -> Swift.String, file: Swift.StaticString = #file, function: Swift.StaticString = #function, line: Swift.UInt = #line)
+  public func error(_ message: @autoclosure () -> Swift.String, file: Swift.StaticString = #file, function: Swift.StaticString = #function, line: Swift.UInt = #line)
+  public func fault(_ message: @autoclosure () -> Swift.String, file: Swift.StaticString = #file, function: Swift.StaticString = #function, line: Swift.UInt = #line)
+}
+extension Log {
+  public static func msg(_ message: @autoclosure () -> Swift.String, file: Swift.StaticString = #file, function: Swift.StaticString = #function, line: Swift.UInt = #line)
+  public static func info(_ message: @autoclosure () -> Swift.String, file: Swift.StaticString = #file, function: Swift.StaticString = #function, line: Swift.UInt = #line)
+  public static func debug(_ message: @autoclosure () -> Swift.String, file: Swift.StaticString = #file, function: Swift.StaticString = #function, line: Swift.UInt = #line)
+  public static func error(_ message: @autoclosure () -> Swift.String, file: Swift.StaticString = #file, function: Swift.StaticString = #function, line: Swift.UInt = #line)
+  public static func fault(_ message: @autoclosure () -> Swift.String, file: Swift.StaticString = #file, function: Swift.StaticString = #function, line: Swift.UInt = #line)
+}
+public protocol LogFormatter {
+  func format(type: os.OSLogType, message: Swift.String, file: Swift.StaticString, function: Swift.StaticString, line: Swift.UInt) -> Swift.String
+}
+public class DefaultLogFormatter : Logging.LogFormatter {
+  public init()
+  public func format(type: os.OSLogType, message: Swift.String, file: Swift.StaticString, function: Swift.StaticString, line: Swift.UInt) -> Swift.String
+  @objc deinit
+}
+extension OSLogType : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}

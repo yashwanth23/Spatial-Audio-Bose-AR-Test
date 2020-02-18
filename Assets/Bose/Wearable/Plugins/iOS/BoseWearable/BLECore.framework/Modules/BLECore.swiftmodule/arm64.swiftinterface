@@ -1,0 +1,257 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name BLECore
+@_exported import BLECore
+import Combine
+import CoreBluetooth
+import Foundation
+import Logging
+import Swift
+extension BLECoreLib {
+  public static var isDeviceLoggingEnabled: Swift.Bool {
+    get
+    set
+  }
+  public static var isDiscoveryLoggingEnabled: Swift.Bool {
+    get
+    set
+  }
+  public static var isServiceLoggingEnabled: Swift.Bool {
+    get
+    set
+  }
+  public static var isSessionLoggingEnabled: Swift.Bool {
+    get
+    set
+  }
+  public static var isTrafficLoggingEnabled: Swift.Bool {
+    get
+    set
+  }
+  public static func enableAllLogging()
+  public static func disableAllLogging()
+  public static func enableCommonLogging()
+}
+@frozen public enum BLECoreError : Swift.Error {
+  case scanAlreadyInProgress
+  case missingService(CoreBluetooth.CBUUID)
+  case incorrectServiceType
+  case noMatchingDeviceTypesFound
+  case centralManagerInvalidState(CoreBluetooth.CBManagerState)
+  case sessionOpenTimedOut
+  case cannotOpenDisposedSession
+  case deviceDisconnected
+  case deviceNotConnected
+}
+extension BLECoreError : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+final public class BLECoreLib {
+  @objc deinit
+}
+@objc public class BluetoothManager : ObjectiveC.NSObject {
+  public var mostRecentlyConnected: (deviceId: Foundation.UUID, deviceType: BLECore.Device.Type)?
+  public init(rssiCutoff: Swift.Int)
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension BluetoothManager {
+  public func registerDevice<T>(type: T.Type) where T : BLECore.Device
+  public func registerService<T>(type: T.Type) where T : BLECore.Service
+  public func deviceType(matching descr: Swift.String) -> BLECore.Device.Type?
+}
+extension BluetoothManager {
+  public func startScanning(removeAfter timeout: Foundation.TimeInterval, callback: @escaping (BLECore.DiscoveryEvent) -> Swift.Void) throws
+  public func stopScanning()
+  public func retrievePeripheral(withId id: Foundation.UUID) -> CoreBluetooth.CBPeripheral?
+}
+extension BluetoothManager {
+  public func retrieveConnectedPeripherals(withServices serviceUUIDs: [BLECore.CBUUIDConvertible]) -> [CoreBluetooth.CBPeripheral]
+}
+extension BluetoothManager {
+  public func session(with device: BLECore.DiscoveredDevice) -> BLECore.Session
+  public func hasSession(for device: BLECore.DiscoveredDevice) -> Swift.Bool
+  public func session(for peripheral: CoreBluetooth.CBPeripheral) -> BLECore.Session?
+}
+extension BluetoothManager : CoreBluetooth.CBCentralManagerDelegate {
+  @objc dynamic public func centralManagerDidUpdateState(_ central: CoreBluetooth.CBCentralManager)
+  @objc dynamic public func centralManager(_ central: CoreBluetooth.CBCentralManager, didDiscover peripheral: CoreBluetooth.CBPeripheral, advertisementData: [Swift.String : Any], rssi RSSI: Foundation.NSNumber)
+  @objc dynamic public func centralManager(_ central: CoreBluetooth.CBCentralManager, didConnect peripheral: CoreBluetooth.CBPeripheral)
+  @objc dynamic public func centralManager(_ central: CoreBluetooth.CBCentralManager, didFailToConnect peripheral: CoreBluetooth.CBPeripheral, error: Swift.Error?)
+  @objc dynamic public func centralManager(_ central: CoreBluetooth.CBCentralManager, didDisconnectPeripheral peripheral: CoreBluetooth.CBPeripheral, error: Swift.Error?)
+}
+public protocol CBUUIDConvertible {
+  var asUUID: CoreBluetooth.CBUUID { get }
+}
+extension CBUUID : BLECore.CBUUIDConvertible {
+  public var asUUID: CoreBluetooth.CBUUID {
+    get
+  }
+}
+extension String : BLECore.CBUUIDConvertible {
+  public var asUUID: CoreBluetooth.CBUUID {
+    get
+  }
+}
+extension CBUUIDConvertible {
+  public static func == (lhs: BLECore.CBUUIDConvertible, rhs: BLECore.CBUUIDConvertible) -> Swift.Bool
+  public static func == (lhs: BLECore.CBUUIDConvertible, rhs: CoreBluetooth.CBUUID) -> Swift.Bool
+  public static func == (lhs: CoreBluetooth.CBUUID, rhs: BLECore.CBUUIDConvertible) -> Swift.Bool
+}
+public protocol Device {
+  static var identification: BLECore.DeviceIdentification { get }
+  var peripheral: CoreBluetooth.CBPeripheral { get }
+  var services: BLECore.ServiceSet { get }
+  init(peripheral: CoreBluetooth.CBPeripheral, services: BLECore.ServiceSet) throws
+}
+extension Device {
+  public static var typeDescription: Swift.String {
+    get
+  }
+}
+public protocol DeviceIdentification {
+  var requiredAdvertisedServiceUUIDs: Swift.Set<CoreBluetooth.CBUUID> { get }
+  var forbiddenAdvertisedServiceUUIDs: Swift.Set<CoreBluetooth.CBUUID> { get }
+  var requiredServices: [BLECore.ServiceIdentification] { get }
+  func advertisementFilter(peripheral: CoreBluetooth.CBPeripheral, advertisementData: [Swift.String : Any]) -> Swift.Bool
+}
+public struct DeviceInformation {
+  public var systemID: Foundation.Data?
+  public var modelNumber: Swift.String?
+  public var serialNumber: Swift.String?
+  public var firmwareRevision: Swift.String?
+  public var hardwareRevision: Swift.String?
+  public var softwareRevision: Swift.String?
+  public var manufacturerName: Swift.String?
+  public var regulatoryCertificationDataList: Foundation.Data?
+  public var pnpID: Foundation.Data?
+  public init(systemID: Foundation.Data?, modelNumber: Swift.String?, serialNumber: Swift.String?, firmwareRevision: Swift.String?, hardwareRevision: Swift.String?, softwareRevision: Swift.String?, manufacturerName: Swift.String?, regulatoryCertificationDataList: Foundation.Data?, pnpID: Foundation.Data?)
+}
+extension DeviceInformation : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+public class DeviceInformationService : BLECore.Service {
+  public static let identification: BLECore.ServiceIdentification
+  final public let service: CoreBluetooth.CBService
+  weak public var delegate: BLECore.DeviceInformationServiceDelegate?
+  required public init(service: CoreBluetooth.CBService)
+  public func startService()
+  public func didUpdateValue(forCharacteristic uuid: CoreBluetooth.CBUUID, error: Swift.Error?)
+  public func refresh()
+  public var deviceInformation: BLECore.DeviceInformation {
+    get
+  }
+  @objc deinit
+}
+public protocol DeviceInformationServiceDelegate : AnyObject {
+  func deviceInformationService(_ sender: BLECore.DeviceInformationService, didStartWithDeviceInformation info: BLECore.DeviceInformation)
+  func deviceInformationService(_ sender: BLECore.DeviceInformationService, didUpdateDeviceInformation info: BLECore.DeviceInformation)
+}
+public class DiscoveredDevice {
+  final public let peripheral: CoreBluetooth.CBPeripheral
+  public var advertisementData: [Swift.String : Any] {
+    get
+    }
+  public var rssi: Swift.Int {
+    get
+    }
+  public init(peripheral: CoreBluetooth.CBPeripheral, advertisementData: [Swift.String : Any], rssi: Swift.Int)
+  public var identifier: Foundation.UUID {
+    get
+  }
+  public var name: Swift.String? {
+    get
+  }
+  public var localName: Swift.String? {
+    get
+  }
+  public var state: CoreBluetooth.CBPeripheralState {
+    get
+  }
+  @objc deinit
+}
+@frozen public enum DiscoveryEvent {
+  case added(BLECore.DiscoveredDevice)
+  case updated(BLECore.DiscoveredDevice)
+  case removed(BLECore.DiscoveredDevice)
+}
+public protocol Service {
+  static var identification: BLECore.ServiceIdentification { get }
+  var service: CoreBluetooth.CBService { get }
+  init(service: CoreBluetooth.CBService)
+  func didUpdateValue(forCharacteristic uuid: CoreBluetooth.CBUUID, error: Swift.Error?)
+  func didUpdateNotificationState(forCharacteristic uuid: CoreBluetooth.CBUUID, error: Swift.Error?)
+  func didWriteValue(forCharacteristic uuid: CoreBluetooth.CBUUID, error: Swift.Error?)
+}
+extension Service {
+  public func didUpdateValue(forCharacteristic uuid: CoreBluetooth.CBUUID, error: Swift.Error?)
+  public func didUpdateNotificationState(forCharacteristic uuid: CoreBluetooth.CBUUID, error: Swift.Error?)
+  public func didWriteValue(forCharacteristic uuid: CoreBluetooth.CBUUID, error: Swift.Error?)
+}
+extension Service {
+  public func characteristic(for uuid: BLECore.CBUUIDConvertible) -> CoreBluetooth.CBCharacteristic?
+  public func value(for uuid: BLECore.CBUUIDConvertible) -> Foundation.Data?
+  public func readValue(for uuid: BLECore.CBUUIDConvertible) -> Swift.Bool
+  public func writeValue(_ value: Foundation.Data, for uuid: BLECore.CBUUIDConvertible, type: CoreBluetooth.CBCharacteristicWriteType)
+  public func setNotifyValue(_ enabled: Swift.Bool, for uuid: BLECore.CBUUIDConvertible)
+}
+extension Service {
+  public func string(from data: Foundation.Data?, encoding: Swift.String.Encoding = .utf8) -> Swift.String?
+}
+public protocol ServiceIdentification {
+  var identifier: BLECore.CBUUIDConvertible { get }
+}
+public struct ServiceSet {
+  public func service<T>(for service: T.Type) throws -> T where T : BLECore.Service
+}
+@objc public class Session : ObjectiveC.NSObject {
+  final public let peripheral: CoreBluetooth.CBPeripheral
+  weak public var delegate: BLECore.SessionDelegate?
+  public var device: BLECore.Device? {
+    get
+    }
+  public static let defaultConnectTimeoutInterval: Foundation.TimeInterval
+  public func open(connectTimeoutInterval: Foundation.TimeInterval? = nil)
+  public func close()
+  public func dispose()
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension Session : CoreBluetooth.CBPeripheralDelegate {
+  @objc dynamic public func peripheral(_ peripheral: CoreBluetooth.CBPeripheral, didDiscoverServices error: Swift.Error?)
+  @objc dynamic public func peripheral(_ peripheral: CoreBluetooth.CBPeripheral, didModifyServices invalidatedServices: [CoreBluetooth.CBService])
+  @objc dynamic public func peripheral(_ peripheral: CoreBluetooth.CBPeripheral, didDiscoverCharacteristicsFor service: CoreBluetooth.CBService, error: Swift.Error?)
+  @objc dynamic public func peripheral(_ peripheral: CoreBluetooth.CBPeripheral, didUpdateValueFor characteristic: CoreBluetooth.CBCharacteristic, error: Swift.Error?)
+  @objc dynamic public func peripheral(_ peripheral: CoreBluetooth.CBPeripheral, didUpdateNotificationStateFor characteristic: CoreBluetooth.CBCharacteristic, error: Swift.Error?)
+  @objc dynamic public func peripheral(_ peripheral: CoreBluetooth.CBPeripheral, didWriteValueFor characteristic: CoreBluetooth.CBCharacteristic, error: Swift.Error?)
+}
+public protocol SessionDelegate : AnyObject {
+  func sessionDidOpen(_ session: BLECore.Session)
+  func sessionDidClose(_ session: BLECore.Session)
+  func session(_ session: BLECore.Session, didFailToOpenWithError error: Swift.Error)
+  func session(_ session: BLECore.Session, didCloseWithError error: Swift.Error)
+}
+public protocol TypedNotification {
+  static var name: Swift.String { get }
+}
+extension TypedNotification {
+  public static var name: Swift.String {
+    get
+  }
+}
+public class NotificationToken {
+  @objc deinit
+}
+extension NotificationCenter {
+  public func post<T>(_ notification: T, from sender: Any) where T : BLECore.TypedNotification
+  public func addObserver<T>(for type: T.Type, object: Any? = nil, queue: Foundation.OperationQueue? = nil, using block: @escaping (T) -> Swift.Void) -> BLECore.NotificationToken where T : BLECore.TypedNotification
+  public func removeObserver(token: BLECore.NotificationToken)
+}
+@available(iOS 13.0, *)
+extension NotificationCenter {
+  public func publisher<T>(for type: T.Type, object: Swift.AnyObject) -> Combine.AnyPublisher<T, Swift.Never> where T : BLECore.TypedNotification
+}

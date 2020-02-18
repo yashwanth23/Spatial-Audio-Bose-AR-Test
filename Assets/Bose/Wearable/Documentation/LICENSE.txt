@@ -1,0 +1,222 @@
+Bose AR Developer Beta SDK License Agreement
+
+The latest version of this agreement may be accessed at: https://developer.bose.com/bose-ar-developer-beta-sdk-license-agreement
+
+VERSION DATE: 3.7.2019
+
+This Bose AR Developer Beta SDK License Agreement (“License Agreement”) is a binding agreement between Bose Corporation, a Delaware corporation with its principal place of business at 100 The Mountain Road, Framingham, Massachusetts 01701, on behalf of and for the benefit of itself and its Affiliates (“Bose”), and you as the “Licensee” (each, a “Party” and collectively the “Parties”).
+
+This License Agreement applies to your use of the Bose AR Developer Beta SDK (the “SDK”, as more specifically defined in Section 1.2 below) and related materials. By using the SDK, you agree to be bound by the terms and conditions of this License Agreement. If you do not agree with and accept the terms and conditions of this License Agreement, you may not use the SDK. If you are accepting this License Agreement on behalf of an entity or organization, you represent and warrant that you have appropriate authority to enter into this License Agreement on behalf of such entity or organization, and references to Licensee shall include and refer to such entity or organization.
+
+    Definitions. Capitalized terms used herein but not defined in their initial context have the meanings set forth below.
+
+1.1. “Affiliate” of a Party means an entity controlling, controlled by or under common control with such Party.
+
+1.2. “SDK” means collectively the Bose AR Developer software development kit Bose provides to you that enables interoperability between Compatible Bose Products and an Application which is executed on computers, smartphones, tablets or other electronic devices to control Compatible Bose Products.
+
+1.3. “Application” means one or more software applications developed by or on behalf of Licensee that uses the SDK and/or incorporates portions of SDK code, and can interface with and interoperate with Compatible Bose Products through the SDK functionality.
+
+1.4. “Bose Marks” means any logo and trademarks of Bose.
+
+1.5. “Compatible Bose Products” means any augmented reality (“AR”) consumer electronic product or other consumer electronic audio product manufactured by or on behalf of Bose that is designed for use with the SDK, and includes any prototypes, product samples or unreleased versions provided by Bose to Licensee. 
+
+1.6. “Documentation” means any specifications, reference designs or other documentation or information made available or communicated by Bose to Licensee in connection with the SDK.
+
+1.7. “Intellectual Property” means (a) trade secrets, know-how, and confidential information of any nature; (b) copyrights, works of authorship and derivative works; (c) patents, ideas, inventions and improvements, (d) trademarks, trade dress, service marks, and logos; (d) mask works; (e) governmental applications or registrations for any of the foregoing items; (f) any other form of rights or property now or hereafter recognized as intellectual property rights or intellectual property under the laws of any governmental jurisdiction; and (g) any tangible instances or copies of any of the foregoing items.
+
+
+    Grant of License; Distribution of Application. 
+
+
+2.1. Subject to the terms and restrictions set forth in this License Agreement, including without limitation Section 2.2, Bose grants to Licensee a limited, world-wide, royalty-free, revocable, non-assignable, non-exclusive and non-sublicensable license to (a) use the SDK and its Documentation internally at Licensee’s facilities for the sole and exclusive purpose of developing in source code form and compiling in object code form Applications that can communicate and interoperate with Compatible Bose Products, and (b) copy and distribute Applications in object code form only to end-users of Licensee’s Applications. Licensee may make up to five (5) copies of the SDK and its Documentation for its internal development purposes only. License may not distribute any copies of the SDK or the Documentation to any third party, or allow any third party to use or view the SDK or the Documentation, absent Bose’s prior written consent in each case.
+
+2.2. NOTWITHSTANDING THE FOREGOING OR ANYTHING TO THE CONTRARY, IN NO EVENT SHALL LICENSEE DISTRIBUTE ANY APPLICATION PRIOR TO RECEIVING WRITTEN APPROVAL BY BOSE AND PRIOR TO THE LAUNCH DATE SET FORTH IN SUCH WRITTEN APPROVAL BY BOSE.
+
+2.3. End-User License Agreements. If Licensee distributes Applications to end-users, Licensee shall distribute such Applications under the end-user licensing terms and conditions of Licensee’s choice (“EULA”), provided the EULA satisfies at a minimum the following conditions set forth in Schedule 1 hereto. Licensee hereby acknowledges that the EULA for each of the Applications is solely between Licensee and the end-user and conforms to applicable law, and neither Bose nor any of Bose’s licensees or suppliers shall be responsible for, or have any liability whatsoever under, any EULA or any breach by Licensee or any end-user of any of the terms and conditions of any EULA.
+ 
+
+    Use of Bose Marks
+
+
+3.1. If Licensee desires to use any Bose Marks in connection with the marketing of an Application, Bose’s prior written approval shall be required. Licensee shall request that Bose review the Application, and Bose may at its sole discretion condition its approval on Licensee’s Application successfully passing technical certification testing or other business or marketing standards or requirements set by Bose. In addition, if Bose provides its approval, Licensee must use the Bose Marks as provided by Bose in strict compliance with the then-current version of Bose’s Trademark Guidelines, which will be provided to Licensee upon request. Bose may modify its Trademark Guidelines from time to time by providing written notice to Licensee, and if it does so, the modified Trademark Guidelines will govern Licensee’s use of the Bose Marks in connection with any Applications manufactured or distributed 30 or more days after the date of Bose’s written notice. Licensee agrees that it will not use the Bose Marks in any way not expressly permitted by this Agreement or the Trademark Guidelines.
+
+3.2. For the avoidance of doubt, and without limiting the requirements in Section 2.2, if Licensee chooses not to use the Bose Marks in connection with the marketing of an Application, then Licensee need not submit the Application to Bose for review and approval as provided in Section 3.1. Licensee may then only refer to Bose and its products or services in plain text in order to factually reference their compatibility with Licensee’s Application, e.g. "Bose® Corporation" or "Licensee's Application for the [Bose] product". Any such use shall not be misleading, defamatory, or state or imply endorsement of Licensee’s Application or any entity, product or service by Bose.
+
+    Material Changes; Re-Approvals. If Licensee makes any material changes to an Application previously reviewed and approved by Bose under Section 3.1, then, prior to any commercial production or distribution of the modified Application in connection with the Bose Marks, Licensee must give Bose prompt written notice thereof. If required by Bose, Licensee will submit the modified Application to Bose for its review and re-approval prior to any commercial production or distribution. Also, for quality control purposes, Bose may, at its sole discretion and at any time, require Licensee to submit for review and re-approval any or all Applications in regard to which Licensee uses the Bose Marks. Licensee will immediately suspend all sales and distribution of any Applications using the Bose Marks submitted for review or re-review that are not approved by Bose. For the avoidance of doubt, Licensee need not submit a modified Application for review and re-approval in accordance with this Section 4 if Licensee ceases to use the Bose Marks.
+
+    Bose Marks License. Subject to the terms and conditions set forth in Sections 3 and 4, Bose hereby grants to Licensee a world-wide, limited, royalty-free, non-exclusive, non-transferable license to use the Bose Marks. Licensee shall not use any Bose Marks in connection with an Application until such time that Licensee has received approval as applicable under Section 3 or 4.
+
+    Licensee Trademark License.  Licensee hereby grants to Bose and its Affiliates and its and their respective distributors and resellers a world-wide, limited, royalty-free non-exclusive license to use Licensee’s name and Application-related trademark(s) (collectively, the “Licensee Marks”) in connection with Bose’s user manuals, product packaging, marketing, advertisements, mobile applications, web pages, and other marketing materials. Bose agrees to comply with Licensee’s trademark guidelines in effect from time to time, if and as communicated to Bose by Licensee. 
+
+    Marketing Activities. The Parties may agree to conduct coordinated marketing activities pursuant to a separate written addendum to this License Agreement.
+
+
+    Ownership; Restrictions on Use.
+
+
+8.1. As between Bose and Licensee, the SDK and the Documentation and all rights therein are and shall remain the sole and exclusive property of Bose or its licensors.  Licensee further agrees not to use or attempt to use the SDK or the Documentation in violation or contravention of any applicable law, regulation or governmental order in any applicable jurisdiction where Licensee has a physical presence or wherever the Applications are distributed or used.
+
+8.2. Licensee will only use the SDK and Documentation for Licensee's own activities related to Licensee's development, use and distribution of Applications for Compatible Bose Products. Licensee will not utilize a third party's Bose developer account to access the SDK, or use the SDK to publish or distribute apps on behalf of a third party through a developer tool or service, or share Licensee's own developer account to allow a third party to access the SDK on Licensee's behalf.  (For the avoidance of doubt, the foregoing prohibition does not restrict or otherwise apply to the normal use of Applications by end-user customers or distributes of Licensee.) 
+
+8.3. In the event that Bose provides Licensee with any Compatible Bose Product that is unreleased, a prototype or sample, or is otherwise identified as confidential by Bose (“Restricted Product”), the following shall apply:
+
+    8.3.1 Until such time as agreed in writing by Bose, Licensee is expressly prohibited from: (i) taking photographs of the Restricted Product; and (ii) making any form of public announcements about the Restricted Product, including any form of postings about the Restricted Product on social media (Facebook, Instagram, Pinterest, Snapchat, etc.).
+    8.3.2 Licensee is expressly prohibited from wearing or otherwise displaying outdoors any Restricted Product; or selling or otherwise transferring any Restricted Product to any third parties whatsoever, including without limitation family members and friends, members of the press, and competitors of Bose.
+    8.3.3 Upon completion of Licensee’s development work on the Application, or at any time if requested by Bose, Licensee shall return Restricted Product to Bose for certification testing or other disposition at Bose’s discretion.
+    8.3.4 Bose may elect to replace any Restricted Product with a production version, in which case Bose will ship the replacement version to Licensee at no additional charge.
+    8.3.5 A violation of this Section 8 may result in suspension, termination of access to the SDK, Documentation, Licensee's developer account, and/or suspension or termination of third-party apps created, uploaded, published, distributed or updated in violation of this provision.
+
+ 
+
+    Confidentiality. Licensee acknowledges that the SDK, the Documentation and any Restricted Product are proprietary information of Bose and may not be disclosed to any third party absent prior written consent of Bose in each case.  Licensee shall protect the SDK and its Documentation, and the terms of this Agreement, from unauthorized use or disclosure with the same degree of care with which Licensee treats its own confidential materials of a like nature, and in any case, with no less than a reasonable degree of care. If Licensee has entered into a separate confidentiality or non-disclosure agreement with Bose regarding the subject matter of this Agreement (“NDA”), then the terms and conditions of such NDA shall remain in full force and effect, are incorporated herein by reference, and apply to the transactions contemplated by this Agreement, provided that any termination of the NDA pursuant to the terms thereof shall have no effect on the confidentiality obligations provided for herein. Except as stated in the preceding sentence, in the event of any express conflict between any provision of the NDA and any other provision of this Agreement, the provision of the NDA shall control. WITHOUT LIMITING THE FOREGOING, IN NO EVENT SHALL YOU MAKE PUBLIC BOSE’S PROPRIETARY INFORMATION INCLUDING WITHOUT LIMITATION THE SDK AND THE DOCUMENTATION ON GITHUB, SOURCEFORGE OR ANY SIMILAR PUBLIC OR PRIVATE PLATFORM.
+ 
+
+    Rights in Application; No Liability.
+
+ 
+
+10.1. Unless otherwise agreed to by the Parties in a separate written addendum or agreement, Bose agrees that it obtains no right, title or interest from Licensee under this License Agreement in or to any Application if considered exclusively of the incorporated SDK itself.
+
+10.2. Licensee agrees that it is solely responsible for (and that Bose has no responsibility to Licensee or to any third party for) any data, content, or resources that Licensee creates, transmits or displays through Licensee's Application or any Compatible Bose Product, and for the consequences of Licensee's actions (including any loss or damage which Bose or any third party may suffer) by doing so.
+ 
+10.3. Licensee agrees that, as between it and Bose, Licensee it is solely responsible for (and that Bose has no responsibility to Licensee or to any third party for) all technical support of Applications for end users. 
+
+10.4. Licensee agrees that Licensee it is solely responsible for (and that Bose has no responsibility to Licensee or to any third party for) any breach of Licensee's obligations under this License Agreement, any applicable third party contract or terms of service, or any applicable law or regulation, and for the consequences (including any loss or damage which Bose or any third party may suffer) of any such breach.
+ 
+
+    User Data and Privacy.
+     
+
+11.1. Bose collects information to provide, manage, and improve its products and services and their performance, and test and create new products, features, and services. Licensee agrees that Bose may collect, store, process, use and share end-user data including without limitation music meta-data and playlists, and data relating to how Compatible Bose Products and related services are used, whether derived from Applications or Compatible Bose Products, in accordance with the Bose Privacy Policy.  Any such information collected and used in accordance with the Bose Privacy Policy is referred to collectively as "End-User Data".
+ 
+
+11.2. Licensee acknowledges and agrees that Bose may use third party analytics, diagnostic, advertising or marketing service providers, such as Segment, Localytics or another third-party provider (collectively, "Third Party Providers"), to collect, store, process, use and share End-User Data in the manners permitted in the Bose Privacy Policy. Except as otherwise expressly prohibited by applicable local law, and irrespective of which country(s) Licensee operates in, Licensee authorizes Bose to use End-User Data in, and as a result to transfer it to and store it in, the United States and any other country where Bose or any Third Party Provider operates.
+ 
+
+11.3. Licensee agrees that the EULA for end-user use of its Applications shall either reference or state a published privacy policy, adopted by Licensee, that accurately and completely discloses Licensee's practices regarding data collection, storage, processing, usage and sharing of any information, whether personally identifying or non-personally identifying, gathered directly or indirectly from any end-users' use of Licensee's Application. In addition, such privacy policy shall also be consistent with any applicable laws and regulations, and satisfy the minimum conditions set forth in Schedule 1 hereto. Licensee's EULA shall require the end-user's consent to such privacy policy as a condition to accessing and using Licensee's Application. Such disclosure shall include, without limitation, a description of, and end-user's consent to, the data collection and usage rights and activities of Bose consistent with Section 11 of this License Agreement.
+ 
+
+11.4. With respect to any end-user information that is collected, stored, processed or used by Licensee within the scope of an end-user's use of Licensee’s Application, Licensee agrees it will only collect, store, process, use or share such end-user information in compliance with Licensee’s stated privacy policy for the Application.
+ 
+
+11.5. Licensee may collect information that end users of the Application use or have used the Compatible Bose Products with the Application. Licensee will not collect, store, process or use for any purpose any other information pertaining to any end-users' use of the Compatible Bose Product, including without limitation music or audio content or meta-data, without Bose’s prior written consent in each case. This prohibition applies without limitation to:
+
+    Information that such end users use or have used Bose or other third-party applications or services (e.g. Spotify, Pandora, etc.) in connection with Compatible Bose Products;
+
+    End users’ usage or listening history on Bose or other third party applications or services;
+
+    That the end users are customers of any third party service provider to Bose.
+
+To the extent Licensee becomes aware of any such proscribed information, whether through use of the SDK, Licensee's Application, or otherwise, Licensee will not itself use any such proscribed information nor disclose it to any third party or otherwise permit third party use of such proscribed information.
+ 
+
+    Term; Termination; Effects of Termination.
+
+
+12.1. Term.  This License Agreement will continue in effect until terminated as set forth herein.
+
+12.2. Termination by Bose-For Cause. Bose may terminate, or at its option, suspend, this License Agreement effective immediately on written notice:
+
+    12.2.1 if Licensee materially breaches any term of this Agreement and such breach is not cured within 30 days after becoming aware of or receiving notice of such breach;
+
+    12.2.2 if Licensee materially breaches any obligation of confidentiality under Section 9 or violates the scope of the license granted in Section 2;
+
+    12.2.3 if any Licensee Application is deemed to infringe any rights in Intellectual Property held by Bose or by any third parties;
+
+    12.2.4 if Licensee engages in any action which disparages Bose or any of its Affiliates or otherwise devalues the name, logos, trademarks, goodwill, or reputation of Bose or any of its Affiliates;
+
+    12.2.5 if Licensee brings or threatens to bring any claim of infringement of rights in Intellectual Property against Bose or any of its Affiliates (including any cross-claim or counterclaim); or
+
+    12.2.6 if Licensee engages, or encourages others to engage, in any misleading, fraudulent, improper, unlawful or dishonest act relating to this Agreement, including, but not limited to: actions or attempts to compromise or destroy the security, data integrity or operation of Bose software, systems, network servers or end-user products, any acts or omissions constituting infringement of third party rights, including but not limited to any rights in intellectual property and rights of publicity or privacy, or the making of threats or incitement of violence, or the distribution of spam or any pornographic or obscene content;
+
+    12.2.7 If Licensee or any of its Applications engage in disproportionate use of networking or server or other infrastructure provided by Bose or any third parties.
+
+12.3     Termination by Bose-For Convenience. Bose may terminate this License Agreement for convenience at any time, at its sole discretion, for any reason, on 30 days written notice. Bose reserves the right to effectuate any termination or suspension of this License Agreement by means of revocation of authorization keys or other technical security measures.
+
+12.4     Termination by Licensee. Licensee may terminate this License Agreement by ceasing to use the SDK and removing all SDK code from Licensee’s Application(s). Licensee shall give Bose 60 days prior written notice if Licensee elects to terminate the License Agreement in this manner.
+
+
+    WARRANTIES; DISCLAIMERS.
+
+
+13.1. THE SDK, DOCUMENTATION AND ANY RESTRICTED PRODUCT IS PROVIDED “AS IS” AND “AS AVAILABLE” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY WARRANTIES OF MERCHANTABILITY, ACCURACY, FITNESS FOR A PARTICULAR PURPOSE, TITLE OR NON-INFRINGEMENT, AND BOSE EXPRESSLY DISCLAIMS ALL WARRANTIES AND CONDITIONS OF ANY KIND, EXPRESS OR IMPLIED, TO THE EXTENT ALLOWED BY APPLICABLE LAW.  LICENSEE’S USE OF THE SDK, DOCUMENTATION AND ANY RESTRICTED PRODUCT IS AT LICENSEE’S SOLE DISCRETION AND RISK, AND LICENSEE IS SOLELY RESPONSIBLE FOR ANY DAMAGE TO ANY SYSTEM OR DEVICE WHICH MAY ARISE FROM SUCH USE.  BOSE MAKES NO WARRANTY OR GUARANTEE THAT LICENSEE’S USE WILL BE UNINTERRUPTED, TIMELY, OR ERROR FREE, OR THAT ANY ERRORS IN THE SDK OR DOCUMENTATION WILL BE CORRECTED.
+
+13.2. Licensee represents and warrants to Bose that:
+
+    13.2.1 Licensee has full right and authority to develop and distribute the Applications, including any necessary third-party licenses or consents.
+
+    13.2.2 Licensee and the Applications shall not infringe any rights in intellectual property or any other proprietary rights held by any third parties.
+
+    13.2.3 Licensee and the Applications will comply with any applicable law or regulation in the jurisdictions where such Applications are used or distributed including without limitation any laws regarding data protection or privacy, and the export of data or software.
+
+    13.2.3 Licensee will (i) provide legally adequate privacy notices to end users, (ii) obtain any necessary consent from the end user for the collection, use, transfer, and storage of personal information, (iii) use and authorize others to access and use personal information only for the purposes permitted by the end user, (iv) ensure that personal information is used, collected, stored and transferred in accordance with applicable privacy notice(s) and applicable law; and (v) store and transfer personal information securely.
+
+    13.2.4 Licensee will not engage in any activity with the SDK, including the development or distribution of an Application, that involves data-mining conducted on Compatible Bose Products or the services or products of Bose’s third party licensors and suppliers, or otherwise interferes with, disrupts, damages, or accesses in an unauthorized manner the servers, networks, or other properties or services of any third party including, but not limited to, Bose, its licensors and suppliers, or any telecommunications carrier.
+
+    13.2.5 Licensee will not use the SDK or its Documentation to develop an App that is targeted to children under 13 years of age unless otherwise agreed to by Bose or knowingly transmit end user information of children under the age of 13 to Bose.
+
+    INDEMNITY. Licensee agrees that Bose will have no liability whatsoever for any use or distribution Licensee or its distributors and resellers make of the SDK. Licensee agrees to defend, indemnify and hold harmless Bose, its Affiliates and each of their respective officers, directors, employees, agents, advertisers, licensors and partners from and against any and all claims, suits, losses, damages (actual or consequential), liabilities, costs, fees and expenses (including reasonable attorneys' fees) arising directly or indirectly out of or otherwise related to any claims that: (a) any Applications, considered exclusively of the SDK, infringe any third party rights in Intellectual Property; (b) allege personal injury or damages to real or personal property arising directly or indirectly from the use of any Applications, considered exclusively of the SDK; (c) Licensee’s use of the Bose Marks trademark in a manner that violates any third party rights; (d) use or distribution of any Applications by Licensee, its suppliers, distributors, or resellers in violation of any applicable law or governmental regulation or order.
+
+    LIMITATION OF LIABILITY. IN NO EVENT AND UNDER NO LEGAL THEORY, WHETHER IN TORT (INCLUDING NEGLIGENCE AND PRODUCT LIABILITY), CONTRACT, WARRANTY, OR OTHERWISE, WILL BOSE OR ANY OF ITS AFFILIATES BE LIABLE FOR ANY DAMAGES, INCLUDING ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR EXEMPLARY DAMAGES  ARISING OUT OF OR RELATED TO THIS LICENSE AGREEMENT INCLUDING ANY ADDENDA, THE USE OF THE SDK, ANY APPLICATIONS, OR BOSE COMPATIBLE PRODUCTS OR ANY INABILITY TO USE THE ANY OF THE FOREGOING, (INCLUDING WITHOUT LIMITATION LOSS OF GOODWILL, BUSINESS INTERRUPTION, LOST PROFITS OR DATA, FAILURE OR MALFUNCTION OF ANY COMPUTER OR ELECTRONIC SYSTEM, OR ANY OTHER COMMERCIAL DAMAGES OR LOSSES), EVEN IF BOSE OR ANY OF ITS AFFILIATES HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. IN THE EVENT THAT THE FOREGOING LIMITATION IS NOT ENFORCEABLE WITHIN ANY APPLICABLE JURISDICTION, IN NO EVENT SHALL BOSE'S TOTAL LIABLITY TO LICENSEE UNDER THIS AGREEMENT FOR ANY DAMAGES EXCEED THE GREATER OF (A) THE AMOUNT LICENSEE PAID BOSE IN CONNECTION WITH THIS AGREEMENT AND (B) THE AMOUNT OF FIFTY DOLLARS ($50.00).  THE FOREGOING LIMITATIONS SHALL APPLY EVEN IF ANY REMEDY GRANTED HEREIN FAILS OF ITS ESSENTIAL PURPOSE.  Some states do not allow the limitation or exclusion of incidental or consequential damages, and where applicable the above limitations or exclusions shall apply to the maximum extent permitted by applicable law. 
+
+    Reservation of Rights.  Licensee acknowledges that title in and ownership of the SDK, the Documentation, the Bose Marks, and any Compatible Bose Products, and all rights in Intellectual Property therein, shall remain at all times vested in Bose and its licensors. Licensee agrees that Bose may request return of any Compatible Bose Products provided by it to Licensee at any time for any reason or no reason, in such case Licensee shall promptly return such products.  Licensee acknowledges that the SDK, Documentation, and any Compatible Bose Products contain valuable trade secrets and Confidential Information of Bose and are protected or protectable by domestic and international trade secret, copyright, and patent laws and other forms of proprietary rights. Licensee may use the SDK in accordance with its Documentation to create Applications, but Licensee agrees not to copy or otherwise reproduce, or to modify, adapt, translate, reverse engineer, decompile, disassemble or create derivative works of the SDK itself. Licensee also agrees not to reverse engineer, decompile, disassemble or create derivative works of any Compatible Bose Products that may be provided by Bose to Licensee. Licensee agrees to reproduce (and not remove) on all copies of the SDK and its Documentation any patent, copyright, trademark, trade secret or other proprietary notices included by Bose. Licensee acknowledges and agrees that except for the rights expressly granted to Licensee under Section 2, all rights in and to the SDK and the Compatible Bose Products are expressly reserved by Bose. Notwithstanding anything in this Agreement to the contrary, no license or right is granted to Licensee by implication, estoppel or otherwise, except the licenses and rights expressly granted herein.  
+ 
+
+    Updates and Modifications.
+
+ 
+17.1. To the SDK. Bose may, at its sole discretion, update or modify the SDK; however, Licensee understands and acknowledges that this License Agreement does not create any obligation on the part of Bose to update or modify the SDK or to provide Licensee with any support or maintenance of the SDK.  Licensee further understands that updates or modifications to the SDK may: (a) remove or restrict previously existing functionality; and/or (b) require Licensee to update or modify its Application.
+
+17.2. To this License Agreement. Bose may, at its sole discretion, make changes to this License Agreement. In the event of any such changes, Licensee will be responsible for reviewing the modified License Agreement, which will be effective upon first posting by Bose to developer.bose.com or upon other notice to Licensee, and use of the SDK by Licensee following any such notification constitutes Licensee's acceptance of the License Agreement as modified.
+
+    Disclaimers and Notices.  In any distribution of the Application, Licensee will retain and reproduce in their entirety any disclaimers, copyright notices, or other proprietary notices, if any, provided with the SDK.
+     
+    Survival.  The terms of Sections 1, 8, 9, 10, 11, 12.5, 13, 14, 15, 16, 19, and 20 shall survive any termination of this License Agreement without limitation. Furthermore, if a provision of this License Agreement states or clearly implies that it should survive any termination of this Agreement for a specified period, then that provision shall survive to the extent of such specified period.
+ 
+
+    Miscellaneous
+
+ 
+20.1. Entire Agreement. This License Agreement, together with any associated NDA or addenda, if any, constitutes the entire agreement between Bose and Licensee in regard to the subject matter hereof, and supersedes any other prior agreements relating to the subject matter hereof between Bose and Licensee.
+
+20.2. Assignment.  This License Agreement and the rights and obligations hereunder may not be assigned, delegated or transferred by Licensee without the prior written consent of Bose, which may be withheld at the sole discretion of Bose.
+
+20.3. No Third-Party Beneficiaries.  Bose’s Affiliates and its and their respective licensors shall be third party beneficiaries of this License Agreement. Other than as expressly set forth herein, no person or entity not a party to this License Agreement will be a third-party beneficiary of this License Agreement.
+
+20.4. Jurisdiction, Venue and Choice of Law. This License Agreement will be governed by and construed according to the laws of the Commonwealth of Massachusetts, without reference to its conflict of laws provisions.  The parties irrevocably agree to submit to the personal and exclusive jurisdiction of the state and federal courts located in the City of Boston, Massachusetts.
+
+20.5. Waiver. The failure of Bose to exercise or enforce any right or provision of this License Agreement will not constitute a waiver of such right or provision. No waiver shall be effective unless made in writing and signed by the party against whom the waiver may be asserted.
+
+20.6. Severability.  If any provision of this License Agreement is found by a court of competent jurisdiction to be invalid or unenforceable, then that provision will be removed from this License Agreement and the remaining provisions will remain in full force and effect to the fullest extent allowed by applicable law.
+
+20.7. Government Use.  Licensee agrees that the SDK are a “Commercial Item”, consisting of “commercial computer software”, and “commercial computer software documentation” as those terms are defined in the Federal Acquisition Regulations and the Defense Federal Acquisition Regulations, as applicable.  Any use of the SDK by the U.S. Government shall be governed by the terms of this License Agreement.
+
+20.8. Equitable Remedies.  Licensee acknowledges that Licensee's breach of the license or use restrictions in this Agreement may cause Bose irreparable harm.   Thus, Licensee agrees that, in addition to any other rights or remedies available under applicable law, Bose shall have the right to immediate injunctive relief in the event of any such breach.
+
+20.9. Relationship of the Parties.  Notwithstanding anything in this Agreement to the contrary, at all times, the status of the Parties shall be solely that of independent contractors to one another, and the Parties shall not be deemed “partners” in any legal sense of the term. This Agreement and the transactions contemplated hereunder shall not be construed as creating the relationship of employer and employee, principal and agent, franchisor and franchisee, joint ventures, co-partners, affiliates or any other similar relationship, the existence of which is expressly denied. 
+
+20.10. No Publicity.  Neither party will issue any press release, publicity or other public disclosure relating to the relationship of the Parties without the other Party's prior written consent. 
+
+
+Schedule 1
+
+Minimum Terms for EULA
+
+    Acknowledgement. Licensee and the end-user shall acknowledge that the EULA is concluded between Licensee and the end-user only, and not with Bose, and that Licensee, and not Bose, is solely responsible for the Application and the content thereof. Licensee’s EULA must state that Bose does not in any way endorse, approve of, or sponsor the Application.
+
+    Scope of License. The license granted to the end-user for the Application shall be limited to a non-transferable license to use the Application on a Bose Product that the end-user owns or controls.
+     
+    Maintenance and Support. Licensee shall be solely responsible for providing any maintenance and support services with respect to the Application, as specified in the EULA, or as required under applicable law. Licensee and the end-user shall acknowledge that Bose has no obligation whatsoever to furnish any maintenance and support services with respect to the Application.
+     
+    Warranty. Licensee shall be solely responsible for any product warranties, whether express or implied by law, to the extent not effectively disclaimed. Bose will have no warranty obligation whatsoever with respect to the Application, and any other claims, losses, liabilities, damages, costs or expenses attributable to any failure to conform to any warranty will be Licensee’s sole responsibility.
+     
+    Product Claims. Licensee and the end-user shall acknowledge that Licensee, not Bose, is responsible for addressing any claims of the end-user or any third party relating to the Application or the end-user's possession and/or use of that Application, including, but not limited to (i) product liability claims; (ii) any claim that the Application fails to conform to any applicable legal or regulatory requirement; and (iii) claims arising under consumer protection or similar legislation.
+     
+    Intellectual Property Rights. Licensee and the end-user shall acknowledge that, in the event of any third party claim that the Application or the end-user's possession and use of that Application infringes that third party's intellectual property rights, Licensee, not Bose, will be solely responsible for the investigation, defense, settlement and discharge of any such intellectual property infringement claim.
+     
+    Developer Name and Address. Licensee shall state in the EULA Licensee’s name and address, and the contact information (telephone number; E-mail address) to which any end-user questions, complaints or claims with respect to the Application should be directed.
+     
+    Third Party Beneficiaries. Licensee and the end-user shall acknowledge and agree that Bose, Bose's affiliates, and its and their respective licensors are third party beneficiaries of the EULA (collectively, “Beneficiaries”). The EULA shall require that, upon the end-user's acceptance of the terms and conditions of the EULA, the Beneficiaries will have the right (and will be deemed to have accepted the right) to enforce the EULA against the end-user as a third-party beneficiary thereof.
+     
+    Privacy Policy. Licensee’s EULA shall either reference or state a published Privacy Policy, adopted by Licensee, that accurately and completely discloses Licensee’s practices regarding data collection, storage, processing, usage and sharing of any information, whether personally identifying or non-personally identifying, gathered directly or indirectly from any end-user’s use of Licensee’s Application. Such Privacy Policy shall also be consistent with any applicable laws and regulations. Licensee’s EULA shall require the end-user’s consent to such Privacy Policy as a condition to using Licensee’s Application. Such disclosure shall include, without limitation, a description of, and end-user’s consent to, the data collection and usage rights and activities of Bose consistent with Section 11 of this License Agreement.
+

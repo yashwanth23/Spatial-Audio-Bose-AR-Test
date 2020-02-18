@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ConnectionAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 1
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 2
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: bbc9ef7005a2541908b364d02268a412, type: 3}
+    totalSpriteSurfaceArea: 379744
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 1b3f81510579f424aadfd95b3c14ba7d, type: 3}
+  - {fileID: 21300000, guid: e189b7e1e2b7b2d418c07acc26e27625, type: 3}
+  - {fileID: 21300000, guid: c1a21a2428d7d43b4b7202021b764951, type: 3}
+  - {fileID: 21300000, guid: d5982174b55fd8c498e340baa4ffcdad, type: 3}
+  - {fileID: 21300000, guid: 6f13ac84b4310fc4789bbb0df05353e3, type: 3}
+  - {fileID: 21300000, guid: 1856afa443b1d58439a23e53df834d9d, type: 3}
+  - {fileID: 21300000, guid: b2e11df40a544d04eaea371276ef6755, type: 3}
+  - {fileID: 21300000, guid: a53ae9354673bc349a42a570a3e561e3, type: 3}
+  - {fileID: 21300000, guid: e2222078236858e40942bc7f4c3c8ba9, type: 3}
+  - {fileID: 21300000, guid: 28c8c08ba7444584bab01ffa97bf6db5, type: 3}
+  - {fileID: 21300000, guid: 994fdecc6e7714704bc67b8c247791a6, type: 3}
+  - {fileID: 21300000, guid: ca979d3fe25851d4e9d393207ce9c53f, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - signal_4
+  - conn_status_success
+  - icon_success
+  - list_divider
+  - signal_1
+  - conn_status_connecting
+  - button_device_shadow
+  - info_icon_bluetooth
+  - button_device_fill
+  - signal_2
+  - annotation_circle
+  - signal_3
+  m_Tag: ConnectionAtlas
+  m_IsVariant: 0

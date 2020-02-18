@@ -1,0 +1,888 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name BoseWearable
+import AVKit
+import BLECore
+@_exported import BoseWearable
+import Combine
+import CommonCrypto
+import CoreBluetooth
+import CoreMotion
+import Foundation
+import Logging
+import Swift
+import UIKit
+import simd
+public struct ActiveNoiseReduction {
+  @frozen public enum Mode : Swift.UInt8, Swift.CustomStringConvertible {
+    case off
+    case high
+    case wind
+    case low
+    case invalid
+    public var description: Swift.String {
+      get
+    }
+    public typealias RawValue = Swift.UInt8
+    public init?(rawValue: Swift.UInt8)
+    public var rawValue: Swift.UInt8 {
+      get
+    }
+  }
+  public var currentMode: BoseWearable.ActiveNoiseReduction.Mode
+  public var availableModes: [BoseWearable.ActiveNoiseReduction.Mode] {
+    get
+  }
+  public func isAvailable(mode: BoseWearable.ActiveNoiseReduction.Mode) -> Swift.Bool
+}
+extension ActiveNoiseReduction : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+public class AlertAction {
+  @frozen public enum Style {
+    case affirmative
+    case negative
+    public static func == (a: BoseWearable.AlertAction.Style, b: BoseWearable.AlertAction.Style) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+  final public let title: Swift.String
+  final public let style: BoseWearable.AlertAction.Style
+  public func invoke()
+  @objc deinit
+}
+@frozen public enum AlertIcon {
+  case boseConnectApp
+  case boseMusicApp
+  case error
+  case noBluetooth
+  public static func == (a: BoseWearable.AlertIcon, b: BoseWearable.AlertIcon) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public struct AlertIconAssets {
+  public static func image(for icon: BoseWearable.AlertIcon) -> UIKit.UIImage
+}
+public protocol AlertUI : BoseWearable.ConnectUIElement {
+  static func create(icon: BoseWearable.AlertIcon, title: Swift.String?, message: Swift.String?, actions: [BoseWearable.AlertAction]) -> Self
+}
+extension BoseWearableLib {
+  @available(iOS 12.0, *)
+  @discardableResult
+  public func startConnection(mode: BoseWearable.ConnectUIMode, sensorIntent: BoseWearable.SensorIntent = SensorIntent(sensors: [], samplePeriods: []), gestureIntent: BoseWearable.GestureIntent = GestureIntent(gestures: []), completionHandler: @escaping (BoseWearable.CancellableResult<BoseWearable.WearableDeviceSession>) -> Swift.Void) -> BoseWearable.AnyConnectionTask
+}
+extension BoseWearableLib {
+  public static var isDeviceLoggingEnabled: Swift.Bool {
+    get
+    set
+  }
+  public static var isSensorDataLoggingEnabled: Swift.Bool {
+    get
+    set
+  }
+  public static var isSensorLoggingEnabled: Swift.Bool {
+    get
+    set
+  }
+  public static var isServiceLoggingEnabled: Swift.Bool {
+    get
+    set
+  }
+  public static var isSessionLoggingEnabled: Swift.Bool {
+    get
+    set
+  }
+  public static var isConnectUILoggingEnabled: Swift.Bool {
+    get
+    set
+  }
+  public static func enableAllLogging()
+  public static func disableAllLogging()
+  public static func enableCommonLogging()
+}
+extension BoseWearableLib {
+  @available(*, deprecated, message: "Use BoseWearable.startConnection(mode:sensorIntent:gestureIntent:completionHander:) instead.")
+  public func startDeviceSearch(mode: BoseWearable.DeviceSearchMode, completionHandler: @escaping (BoseWearable.CancellableResult<BoseWearable.WearableDeviceSession>) -> Swift.Void)
+}
+public class BoseWearableLib {
+  @frozen public enum ConfigOption : Swift.String {
+    case rssiCutoff
+    case focusMode
+    public typealias RawValue = Swift.String
+    public init?(rawValue: Swift.String)
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  final public let bluetoothManager: BLECore.BluetoothManager
+  public func createSimulatedWearableDeviceSession() -> BoseWearable.WearableDeviceSession
+  @objc deinit
+}
+extension BoseWearableLib {
+  public static func configure(_ options: [BoseWearable.BoseWearableLib.ConfigOption : Any] = [:])
+  public static var shared: BoseWearable.BoseWearableLib {
+    get
+  }
+  public static var releaseVersion: Swift.String? {
+    get
+  }
+  public static var buildNumber: Swift.String? {
+    get
+  }
+  public static var formattedVersion: Swift.String {
+    get
+  }
+}
+extension BoseWearableError : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+extension BoseWearableError.ErrorCode : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+@frozen public enum BoseWearableError : Swift.Error {
+  @frozen public enum ErrorCode : Swift.UInt8, Swift.Error {
+    case invalidRequestLength
+    case invalidSamplePeriod
+    case invalidSensorConfiguration
+    case configExceedsMaxThroughput
+    case wearableSensorServiceUnavailable
+    case invalidSensor
+    case timeout
+    public typealias RawValue = Swift.UInt8
+    public init?(rawValue: Swift.UInt8)
+    public var rawValue: Swift.UInt8 {
+      get
+    }
+  }
+  case wearableDeviceError(code: BoseWearable.BoseWearableError.ErrorCode, underlyingError: Swift.Error)
+  case invalidResponse
+  case firmwareUpdateRequired(BoseWearable.FirmwareUpdateApp)
+  case unsupportedDevice
+  case focusIdentifierCharacteristicNotSupported
+  case appDoesNotHaveFocus
+  case missingRequiredCharacteristic(CoreBluetooth.CBUUID)
+  case connectionTaskAlreadyInProgress
+  case functionNotSupported
+  case missingRequiredData
+  case unrecognizedProductID(Swift.UInt16)
+  case intentsNotFulfilled(sensors: Swift.Set<BoseWearable.SensorType>, samplePeriods: Swift.Set<BoseWearable.SamplePeriod>, gestures: Swift.Set<BoseWearable.GestureType>)
+}
+@frozen public enum CancellableResult<Value> {
+  case success(Value)
+  case failure(Swift.Error)
+  case cancelled
+  public var isSuccess: Swift.Bool {
+    get
+  }
+  public var isFailure: Swift.Bool {
+    get
+  }
+  public var isCancelled: Swift.Bool {
+    get
+  }
+  public var value: Value? {
+    get
+  }
+  public var error: Swift.Error? {
+    get
+  }
+}
+public protocol AnyConnectionTask : AnyObject {
+  func cancel()
+}
+public class ConnectionTask<ConnectUIImpl> : BoseWearable.AnyConnectionTask where ConnectUIImpl : BoseWearable.ConnectUI {
+  public init(mode: BoseWearable.ConnectUIMode, bluetoothManager: BLECore.BluetoothManager = BoseWearableLib.shared.bluetoothManager, removeTimeout: Foundation.TimeInterval = 15, sensorIntent: BoseWearable.SensorIntent, gestureIntent: BoseWearable.GestureIntent, userInterface: ConnectUIImpl, completionHandler: @escaping (BoseWearable.CancellableResult<BoseWearable.WearableDeviceSession>) -> Swift.Void)
+  @available(iOS 12.0, *)
+  public func start()
+  public func cancel()
+  @objc deinit
+}
+public protocol ConnectUI {
+  associatedtype SearchUIImpl : BoseWearable.SearchUI
+  associatedtype AlertUIImpl : BoseWearable.AlertUI
+  associatedtype InfoUIImpl : BoseWearable.InfoUI
+  func start()
+  func push(_ element: BoseWearable.ConnectUIElement)
+  func pop()
+  func restart()
+  func open(url: Foundation.URL)
+  func finish()
+}
+public protocol ConnectUIElement {
+}
+@frozen public enum ConnectUIMode {
+  case alwaysShow
+  case connectToLast(timeout: Foundation.TimeInterval)
+  case reconnect(device: BoseWearable.MostRecentlyConnectedDevice)
+}
+public struct ControllableNoiseCancellation {
+  public var numberOfSteps: Swift.UInt8
+  public var currentLevel: Swift.UInt8
+  public var isEnabled: Swift.Bool
+}
+extension ControllableNoiseCancellation : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+@frozen public enum DeviceProtocolError : Swift.Error {
+  case errorCode(BoseWearable.DeviceProtocolErrorCode)
+  case unrecognizedErrorCode(Swift.UInt8)
+  case functionBlockSpecificErrorCode(Swift.UInt8)
+  case receivedUnexpectedResponse
+  case receivedMalformedResponse
+}
+extension DeviceProtocolError : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+@frozen public enum DeviceProtocolErrorCode : Swift.UInt8 {
+  case length
+  case checksum
+  case fBlockNotSupported
+  case functionNotSupported
+  case operatorNotSupported
+  case invalidData
+  case dataNotAvailable
+  case runTime
+  case timeout
+  case invalidState
+  case functionBlockSpecificError
+  public typealias RawValue = Swift.UInt8
+  public init?(rawValue: Swift.UInt8)
+  public var rawValue: Swift.UInt8 {
+    get
+  }
+}
+extension DeviceProtocolErrorCode : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+@available(*, deprecated, message: "DeviceSearchMode has been replaced by ConnectUIMode.")
+@frozen public enum DeviceSearchMode {
+  case alwaysShowUI
+  case automaticallySelectMostRecentlyConnectedDevice(timeout: Foundation.TimeInterval)
+}
+@available(*, deprecated, message: "DeviceSearchTask has been replaced by ConnectionTask.")
+public class DeviceSearchTask {
+  public init(bluetoothManager: BLECore.BluetoothManager = BoseWearableLib.shared.bluetoothManager, removeTimeout: Foundation.TimeInterval = 15, mode: BoseWearable.DeviceSearchMode, userInterface: BoseWearable.DeviceSearchTaskUserInterface, completionHandler: @escaping (BoseWearable.CancellableResult<BoseWearable.WearableDeviceSession>) -> Swift.Void)
+  public func start()
+  @objc deinit
+}
+@available(*, deprecated, message: "DeviceSearchTask has been replaced by ConnectionTask.")
+extension DeviceSearchTask : BoseWearable.DeviceSearchTaskUserInterfaceDelegate {
+  public func selected(device: BLECore.DiscoveredDevice)
+  public func cancelled()
+}
+@available(*, deprecated, message: "DeviceSearchTask has been deprecated. It has been replaced by ConnectionTask.")
+public protocol DeviceSearchTaskUserInterface {
+  var delegate: BoseWearable.DeviceSearchTaskUserInterfaceDelegate? { get set }
+  func show()
+  func dismiss()
+  func add(device: BLECore.DiscoveredDevice, signalStrength: BoseWearable.SignalStrength)
+  func update(device: BLECore.DiscoveredDevice, signalStrength: BoseWearable.SignalStrength)
+  func remove(device: BLECore.DiscoveredDevice)
+}
+@available(*, deprecated, message: "DeviceSearchTask has been deprecated. It has been replaced by ConnectionTask.")
+public protocol DeviceSearchTaskUserInterfaceDelegate : AnyObject {
+  func selected(device: BLECore.DiscoveredDevice)
+  func cancelled()
+}
+@frozen public enum DeviceState {
+  case found(BoseWearable.SignalStrength)
+  case connecting
+  case connected
+}
+extension DeviceState : Swift.Equatable {
+  public static func == (lhs: BoseWearable.DeviceState, rhs: BoseWearable.DeviceState) -> Swift.Bool
+}
+public struct DeviceStatus : Swift.OptionSet, Swift.CustomStringConvertible {
+  public var rawValue: Swift.UInt16
+  public var suspensionReason: BoseWearable.SuspensionReason
+  public init(rawValue: Swift.UInt16)
+  public static let pairingEnabled: BoseWearable.DeviceStatus
+  public static let secureBLEPairingRequired: BoseWearable.DeviceStatus
+  public static let alreadyPairedToClient: BoseWearable.DeviceStatus
+  public static let wearableSensorsServiceSuspended: BoseWearable.DeviceStatus
+  public var description: Swift.String {
+    get
+  }
+  public typealias Element = BoseWearable.DeviceStatus
+  public typealias ArrayLiteralElement = BoseWearable.DeviceStatus
+  public typealias RawValue = Swift.UInt16
+}
+extension FirmwareUpdateApp : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+@frozen public enum FirmwareUpdateApp {
+  case boseConnect
+  case boseMusic
+  public var url: Foundation.URL {
+    get
+  }
+  public static func == (a: BoseWearable.FirmwareUpdateApp, b: BoseWearable.FirmwareUpdateApp) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+@frozen public enum FirmwareUpdateStatus {
+  case updateAvailable(version: Swift.String)
+  case upToDate
+}
+public struct FirmwareVersion {
+  public var version: Swift.String
+  public var updateStatus: BoseWearable.FirmwareUpdateStatus
+  public var firmwareUpdateApp: BoseWearable.FirmwareUpdateApp?
+}
+@frozen public enum FocusMode {
+  case ignored
+  case manual
+  public static func == (a: BoseWearable.FocusMode, b: BoseWearable.FocusMode) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public struct GestureConfiguration {
+}
+extension GestureConfiguration {
+  mutating public func enableAll()
+  mutating public func disableAll()
+  public func isEnabled(gesture: BoseWearable.GestureType) -> Swift.Bool
+  mutating public func set(gesture: BoseWearable.GestureType, enabled: Swift.Bool)
+}
+extension GestureConfiguration : Swift.CustomDebugStringConvertible {
+  public var debugDescription: Swift.String {
+    get
+  }
+}
+extension GestureConfiguration : Swift.Equatable {
+  public static func == (lhs: BoseWearable.GestureConfiguration, rhs: BoseWearable.GestureConfiguration) -> Swift.Bool
+}
+public struct GestureData {
+  public var gesture: BoseWearable.GestureType
+  public var timestamp: BoseWearable.SensorTimestamp
+  public var payload: Foundation.Data
+  public init(gesture: BoseWearable.GestureType, timestamp: BoseWearable.SensorTimestamp, payload: Foundation.Data)
+}
+extension GestureData : Swift.CustomDebugStringConvertible {
+  public var debugDescription: Swift.String {
+    get
+  }
+}
+public struct GestureInformation {
+}
+extension GestureInformation {
+  public var availableGestures: [BoseWearable.GestureType] {
+    get
+  }
+}
+extension GestureInformation : Swift.CustomDebugStringConvertible {
+  public var debugDescription: Swift.String {
+    get
+  }
+}
+public struct GestureIntent {
+  public var gestures: Swift.Set<BoseWearable.GestureType>
+  public init(gestures: Swift.Set<BoseWearable.GestureType>)
+}
+extension GestureType : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+@frozen public enum GestureType : Swift.UInt8, Swift.Codable {
+  case singleTap
+  case doubleTap
+  case headNod
+  case headShake
+  case touchAndHold
+  case input
+  case affirmative
+  case negative
+  public static var all: [BoseWearable.GestureType]
+  public typealias RawValue = Swift.UInt8
+  public init?(rawValue: Swift.UInt8)
+  public var rawValue: Swift.UInt8 {
+    get
+  }
+}
+@frozen public enum InfoType {
+  case securePairing(info: BoseWearable.SecurePairingInfo)
+}
+public protocol InfoUI : BoseWearable.ConnectUIElement {
+  var infoDelegate: BoseWearable.InfoUIDelegate? { get set }
+  static func create(title: Swift.String, message: Swift.String?, type: BoseWearable.InfoType, cancellable: Swift.Bool) -> Self
+}
+public protocol InfoUIDelegate : AnyObject {
+  func infoUICancelled(_ sender: BoseWearable.InfoUI)
+}
+public class ListenerToken {
+  @objc deinit
+}
+public struct MostRecentlyConnectedDevice {
+  public let deviceId: Foundation.UUID
+  public static func get() -> BoseWearable.MostRecentlyConnectedDevice?
+}
+public typealias Quaternion = simd.simd_quatd
+extension simd_quatd {
+  public var w: Swift.Double {
+    get
+  }
+  public var x: Swift.Double {
+    get
+  }
+  public var y: Swift.Double {
+    get
+  }
+  public var z: Swift.Double {
+    get
+  }
+  public var quatf: simd.simd_quatf {
+    get
+  }
+  public var xRotation: Swift.Double {
+    get
+  }
+  public var yRotation: Swift.Double {
+    get
+  }
+  public var zRotation: Swift.Double {
+    get
+  }
+  @available(*, deprecated, message: "Use Quaternion.xRotation, Quaternion.yRotation, or Quaternion.zRotation.")
+  public var pitch: Swift.Double {
+    get
+  }
+  @available(*, deprecated, message: "Use Quaternion.xRotation, Quaternion.yRotation, or Quaternion.zRotation.")
+  public var roll: Swift.Double {
+    get
+  }
+  @available(*, deprecated, message: "Use Quaternion.xRotation, Quaternion.yRotation, or Quaternion.zRotation.")
+  public var yaw: Swift.Double {
+    get
+  }
+}
+extension simd_quatd {
+  public var debugDescription: Swift.String {
+    get
+  }
+}
+public struct QuaternionAccuracy {
+  public var estimatedAccuracy: Swift.Double
+  public init(estimatedAccuracy: Swift.Double)
+}
+@frozen public enum Result<Value> {
+  case success(Value)
+  case failure(Swift.Error)
+  public var isSuccess: Swift.Bool {
+    get
+  }
+  public var isFailure: Swift.Bool {
+    get
+  }
+  public var value: Value? {
+    get
+  }
+  public var error: Swift.Error? {
+    get
+  }
+}
+extension SamplePeriod : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+@frozen public enum SamplePeriod : Swift.UInt8 {
+  case _320ms
+  case _160ms
+  case _80ms
+  case _40ms
+  case _20ms
+  case _10ms
+  case _5ms
+  public static let all: [BoseWearable.SamplePeriod]
+  public var milliseconds: Swift.UInt16 {
+    get
+  }
+  public typealias RawValue = Swift.UInt8
+  public init?(rawValue: Swift.UInt8)
+  public var rawValue: Swift.UInt8 {
+    get
+  }
+}
+public protocol SearchUI : BoseWearable.ConnectUIElement {
+  var searchDelegate: BoseWearable.SearchUIDelegate? { get set }
+  static func create() -> Self
+  func add(device: BLECore.DiscoveredDevice, state: BoseWearable.DeviceState)
+  func update(device: BLECore.DiscoveredDevice, state: BoseWearable.DeviceState)
+  func remove(device: BLECore.DiscoveredDevice)
+  func removeAllDevices()
+}
+public protocol SearchUIDelegate : AnyObject {
+  func searchUI(_ sender: BoseWearable.SearchUI, selectedDevice device: BLECore.DiscoveredDevice)
+  func searchUICancelled(_ sender: BoseWearable.SearchUI)
+}
+public struct SecurePairingInfo {
+  @frozen public enum Asset {
+    case image(source: Foundation.URL)
+    case video(source: Foundation.URL)
+  }
+  public var productId: Swift.UInt16
+  public var variant: Swift.UInt8
+  public var asset: BoseWearable.SecurePairingInfo.Asset
+}
+public struct SensorConfiguration {
+}
+extension SensorConfiguration {
+  public var enabledSensorsSamplePeriod: BoseWearable.SamplePeriod? {
+    get
+    set
+  }
+  public func isEnabled(sensor: BoseWearable.SensorType) -> Swift.Bool
+  public func samplePeriod(for sensor: BoseWearable.SensorType) -> BoseWearable.SamplePeriod?
+  public var allSensors: [BoseWearable.SensorType] {
+    get
+  }
+  public var enabledSensors: [BoseWearable.SensorType] {
+    get
+  }
+  public var disabledSensors: [BoseWearable.SensorType] {
+    get
+  }
+  mutating public func disableAll()
+  mutating public func disable(sensor: BoseWearable.SensorType)
+  mutating public func enable(sensor: BoseWearable.SensorType, at period: BoseWearable.SamplePeriod)
+}
+extension SensorConfiguration : Swift.CustomDebugStringConvertible {
+  public var debugDescription: Swift.String {
+    get
+  }
+}
+extension SensorConfiguration : Swift.Equatable {
+  public static func == (lhs: BoseWearable.SensorConfiguration, rhs: BoseWearable.SensorConfiguration) -> Swift.Bool
+}
+public struct SensorData {
+  public var values: [BoseWearable.SensorValue]
+}
+extension SensorData : Swift.CustomDebugStringConvertible {
+  public var debugDescription: Swift.String {
+    get
+  }
+}
+public class SensorDispatch {
+  weak public var handler: BoseWearable.SensorDispatchHandler?
+  public init(queue: Foundation.OperationQueue, session: BoseWearable.WearableDeviceSession? = nil)
+  public var sensorDataCallback: ((BoseWearable.SensorData) -> Swift.Void)?
+  public var gestureDataCallback: ((BoseWearable.GestureType, BoseWearable.SensorTimestamp) -> Swift.Void)?
+  public var accelerometerCallback: ((BoseWearable.Vector, BoseWearable.VectorAccuracy, BoseWearable.SensorTimestamp) -> Swift.Void)?
+  public var gyroscopeCallback: ((BoseWearable.Vector, BoseWearable.VectorAccuracy, BoseWearable.SensorTimestamp) -> Swift.Void)?
+  public var rotationCallback: ((BoseWearable.Quaternion, BoseWearable.QuaternionAccuracy, BoseWearable.SensorTimestamp) -> Swift.Void)?
+  public var gameRotationCallback: ((BoseWearable.Quaternion, BoseWearable.SensorTimestamp) -> Swift.Void)?
+  public var orientationCallback: ((BoseWearable.Vector, BoseWearable.VectorAccuracy, BoseWearable.SensorTimestamp) -> Swift.Void)?
+  public var magnetometerCallback: ((BoseWearable.Vector, BoseWearable.VectorAccuracy, BoseWearable.SensorTimestamp) -> Swift.Void)?
+  public var uncalibratedMagnetometerCallback: ((BoseWearable.Vector, BoseWearable.Vector, BoseWearable.SensorTimestamp) -> Swift.Void)?
+  @objc deinit
+}
+public protocol SensorDispatchHandler : AnyObject {
+  func receivedSensorData(_ data: BoseWearable.SensorData)
+  func receivedAccelerometer(vector: BoseWearable.Vector, accuracy: BoseWearable.VectorAccuracy, timestamp: BoseWearable.SensorTimestamp)
+  func receivedGyroscope(vector: BoseWearable.Vector, accuracy: BoseWearable.VectorAccuracy, timestamp: BoseWearable.SensorTimestamp)
+  func receivedRotation(quaternion: BoseWearable.Quaternion, accuracy: BoseWearable.QuaternionAccuracy, timestamp: BoseWearable.SensorTimestamp)
+  func receivedGameRotation(quaternion: BoseWearable.Quaternion, timestamp: BoseWearable.SensorTimestamp)
+  func receivedOrientation(vector: BoseWearable.Vector, accuracy: BoseWearable.VectorAccuracy, timestamp: BoseWearable.SensorTimestamp)
+  func receivedMagnetometer(vector: BoseWearable.Vector, accuracy: BoseWearable.VectorAccuracy, timestamp: BoseWearable.SensorTimestamp)
+  func receivedUncalibratedMagnetometer(vector: BoseWearable.Vector, bias: BoseWearable.Vector, timestamp: BoseWearable.SensorTimestamp)
+  func receivedGesture(type: BoseWearable.GestureType, timestamp: BoseWearable.SensorTimestamp)
+}
+extension SensorDispatchHandler {
+  public func receivedSensorData(_ data: BoseWearable.SensorData)
+  public func receivedAccelerometer(vector: BoseWearable.Vector, accuracy: BoseWearable.VectorAccuracy, timestamp: BoseWearable.SensorTimestamp)
+  public func receivedGyroscope(vector: BoseWearable.Vector, accuracy: BoseWearable.VectorAccuracy, timestamp: BoseWearable.SensorTimestamp)
+  public func receivedRotation(quaternion: BoseWearable.Quaternion, accuracy: BoseWearable.QuaternionAccuracy, timestamp: BoseWearable.SensorTimestamp)
+  public func receivedGameRotation(quaternion: BoseWearable.Quaternion, timestamp: BoseWearable.SensorTimestamp)
+  public func receivedOrientation(vector: BoseWearable.Vector, accuracy: BoseWearable.VectorAccuracy, timestamp: BoseWearable.SensorTimestamp)
+  public func receivedMagnetometer(vector: BoseWearable.Vector, accuracy: BoseWearable.VectorAccuracy, timestamp: BoseWearable.SensorTimestamp)
+  public func receivedUncalibratedMagnetometer(vector: BoseWearable.Vector, bias: BoseWearable.Vector, timestamp: BoseWearable.SensorTimestamp)
+  public func receivedGesture(type: BoseWearable.GestureType, timestamp: BoseWearable.SensorTimestamp)
+}
+public struct SensorInformation {
+}
+extension SensorInformation {
+  public var availableSensors: [BoseWearable.SensorType] {
+    get
+  }
+  public func scaledValueRange(for sensor: BoseWearable.SensorType) -> Swift.Range<Swift.Int16>?
+  public func rawValueRange(for sensor: BoseWearable.SensorType) -> Swift.Range<Swift.Int16>?
+  public func availableSamplePeriods(for sensor: BoseWearable.SensorType) -> Swift.Set<BoseWearable.SamplePeriod>
+  public var availableSamplePeriods: [BoseWearable.SamplePeriod] {
+    get
+  }
+}
+extension SensorInformation : Swift.CustomDebugStringConvertible {
+  public var debugDescription: Swift.String {
+    get
+  }
+}
+public struct SensorIntent {
+  public var sensors: Swift.Set<BoseWearable.SensorType>
+  public var samplePeriods: Swift.Set<BoseWearable.SamplePeriod>
+  public init(sensors: Swift.Set<BoseWearable.SensorType>, samplePeriods: Swift.Set<BoseWearable.SamplePeriod>)
+}
+@frozen public enum SensorSample {
+  case accelerometer(value: BoseWearable.Vector, accuracy: BoseWearable.VectorAccuracy)
+  case gyroscope(value: BoseWearable.Vector, accuracy: BoseWearable.VectorAccuracy)
+  case rotation(value: BoseWearable.Quaternion, accuracy: BoseWearable.QuaternionAccuracy)
+  case gameRotation(value: BoseWearable.Quaternion)
+  case orientation(value: BoseWearable.Vector, accuracy: BoseWearable.VectorAccuracy)
+  case magnetometer(value: BoseWearable.Vector, accuracy: BoseWearable.VectorAccuracy)
+  case uncalibratedMagnetometer(value: BoseWearable.Vector, bias: BoseWearable.Vector)
+  public var vector: BoseWearable.Vector? {
+    get
+  }
+  public var vectorAccuracy: BoseWearable.VectorAccuracy? {
+    get
+  }
+  public var quaternion: BoseWearable.Quaternion? {
+    get
+  }
+  public var quaternionAccuracy: BoseWearable.QuaternionAccuracy? {
+    get
+  }
+  public var bias: BoseWearable.Vector? {
+    get
+  }
+}
+extension SensorSample : Swift.CustomDebugStringConvertible {
+  public var debugDescription: Swift.String {
+    get
+  }
+}
+public typealias SensorTimestamp = Swift.UInt16
+extension SensorType : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+@frozen public enum SensorType : Swift.UInt8, Swift.Codable {
+  case accelerometer
+  case gyroscope
+  case rotation
+  case gameRotation
+  case orientation
+  case magnetometer
+  case uncalibratedMagnetometer
+  public static var all: [BoseWearable.SensorType]
+  public typealias RawValue = Swift.UInt8
+  public init?(rawValue: Swift.UInt8)
+  public var rawValue: Swift.UInt8 {
+    get
+  }
+}
+public struct SensorValue {
+  public var sensor: BoseWearable.SensorType
+  public var timestamp: BoseWearable.SensorTimestamp
+  public var sample: BoseWearable.SensorSample
+  public init(sensor: BoseWearable.SensorType, timestamp: BoseWearable.SensorTimestamp, sample: BoseWearable.SensorSample)
+}
+extension SensorValue : Swift.CustomDebugStringConvertible {
+  public var debugDescription: Swift.String {
+    get
+  }
+}
+@frozen public enum SignalStrength {
+  case weak
+  case moderate
+  case strong
+  case full
+  public static func == (a: BoseWearable.SignalStrength, b: BoseWearable.SignalStrength) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+@frozen public enum SuspensionReason : Swift.UInt8, Swift.CustomStringConvertible {
+  case unknown
+  case vpaInteractionInProgress
+  case multipointConnectionActive
+  case musicShareModeActive
+  case ota
+  public var description: Swift.String {
+    get
+  }
+  public typealias RawValue = Swift.UInt8
+  public init?(rawValue: Swift.UInt8)
+  public var rawValue: Swift.UInt8 {
+    get
+  }
+}
+public typealias Vector = simd.simd_double3
+extension SIMD3 where Scalar == Swift.Double {
+  public var float3: simd.simd_float3 {
+    get
+  }
+}
+@frozen public enum VectorAccuracy : Swift.UInt8 {
+  case unreliable
+  case low
+  case medium
+  case high
+  public typealias RawValue = Swift.UInt8
+  public init?(rawValue: Swift.UInt8)
+  public var rawValue: Swift.UInt8 {
+    get
+  }
+}
+extension VectorAccuracy : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension WearableDevice {
+  public typealias WearableDeviceEventHandler = (BoseWearable.WearableDeviceEvent) -> Swift.Void
+  public func addEventListener(queue: Foundation.OperationQueue?, handler: @escaping Self.WearableDeviceEventHandler) -> BoseWearable.ListenerToken
+}
+public protocol WearableDevice {
+  var name: Swift.String? { get }
+  var hasFocus: Swift.Bool { get }
+  var firmwareVersion: BoseWearable.FirmwareVersion? { get }
+  var deviceInformation: BLECore.DeviceInformation? { get }
+  func refreshDeviceInformation()
+  var wearableDeviceInformation: BoseWearable.WearableDeviceInformation? { get }
+  func refreshWearableDeviceInformation()
+  var sensorInformation: BoseWearable.SensorInformation? { get }
+  func refreshSensorInformation()
+  var sensorConfiguration: BoseWearable.SensorConfiguration? { get }
+  func refreshSensorConfiguration()
+  func changeSensorConfiguration(_ newConfiguration: BoseWearable.SensorConfiguration)
+  var gestureInformation: BoseWearable.GestureInformation? { get }
+  func refreshGestureInformation()
+  var gestureConfiguration: BoseWearable.GestureConfiguration? { get }
+  func refreshGestureConfiguration()
+  func changeGestureConfiguration(_ newConfiguration: BoseWearable.GestureConfiguration)
+  func requestFocus()
+  var isWearableSensorServiceSuspended: Swift.Bool { get }
+  func validateIntents(sensor sensorIntent: BoseWearable.SensorIntent, gesture gestureIntent: BoseWearable.GestureIntent) -> BoseWearable.Result<Swift.Void>
+  func getControllableNoiseCancellation(completionHandler: @escaping (BoseWearable.Result<BoseWearable.ControllableNoiseCancellation>) -> Swift.Void)
+  func setControllableNoiseCancellation(level: Swift.UInt8, isEnabled: Swift.Bool, completionHandler: @escaping (BoseWearable.Result<BoseWearable.ControllableNoiseCancellation>) -> Swift.Void)
+  func getActiveNoiseReduction(completionHandler: @escaping (BoseWearable.Result<BoseWearable.ActiveNoiseReduction>) -> Swift.Void)
+  func setActiveNoiseReduction(mode: BoseWearable.ActiveNoiseReduction.Mode, completionHandler: @escaping (BoseWearable.Result<BoseWearable.ActiveNoiseReduction>) -> Swift.Void)
+  func setProductName(name: Swift.String, completionHandler: @escaping ((BoseWearable.Result<(Swift.String, Swift.Bool)>) -> Swift.Void))
+  func getProductName(completionHandler: @escaping ((BoseWearable.Result<(Swift.String, Swift.Bool)>) -> Swift.Void))
+  func getBatteryLevel(completionHandler: @escaping ((BoseWearable.Result<Swift.UInt8>) -> Swift.Void))
+}
+extension WearableDevice {
+  public func configureSensors(_ body: (inout BoseWearable.SensorConfiguration) -> Swift.Void)
+  public func configureGestures(_ body: (inout BoseWearable.GestureConfiguration) -> Swift.Void)
+}
+@frozen public enum WearableDeviceEvent : BLECore.TypedNotification {
+  case didUpdateDeviceInformation(BLECore.DeviceInformation)
+  case didUpdateWearableDeviceInformation(BoseWearable.WearableDeviceInformation)
+  case didUpdateSensorInformation(BoseWearable.SensorInformation)
+  case didUpdateSensorConfiguration(BoseWearable.SensorConfiguration)
+  case didWriteSensorConfiguration
+  case didFailToWriteSensorConfiguration(Swift.Error)
+  case didReceiveSensorData(BoseWearable.SensorData)
+  case didUpdateGestureInformation(BoseWearable.GestureInformation)
+  case didUpdateGestureConfiguration(BoseWearable.GestureConfiguration)
+  case didWriteGestureConfiguration
+  case didFailToWriteGestureConfiguration(Swift.Error)
+  case didReceiveGestureData(BoseWearable.GestureData)
+  case didLoseFocus
+  case didGainFocus
+  case didFailToRequestFocus(Swift.Error)
+  case didSuspendWearableSensorService(BoseWearable.SuspensionReason)
+  case didResumeWearableSensorService
+}
+public struct WearableDeviceInformation {
+  public var majorVersion: Swift.UInt8
+  public var minorVersion: Swift.UInt8
+  public var productID: Swift.UInt16
+  public var variant: Swift.UInt8
+  public var availableSensors: Swift.Set<BoseWearable.SensorType>
+  public var availableGestures: Swift.Set<BoseWearable.GestureType>
+  public var transmissionPeriod: Swift.UInt8
+  public var maximumPayloadPerTransmissionPeriod: Swift.UInt16
+  public var maximumActiveSensors: Swift.UInt8
+  public var deviceStatus: BoseWearable.DeviceStatus
+}
+extension WearableDeviceInformation : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+public protocol WearableDeviceSession {
+  var pairingDelegate: BoseWearable.WearableDeviceSessionPairingDelegate? { get set }
+  var delegate: BoseWearable.WearableDeviceSessionDelegate? { get set }
+  var device: BoseWearable.WearableDevice? { get }
+  var state: BoseWearable.WearableDeviceSessionState { get }
+  func open()
+  func close()
+  var connectTimeoutInterval: Foundation.TimeInterval? { get }
+}
+public protocol WearableDeviceSessionDelegate : AnyObject {
+  func sessionDidOpen(_ session: BoseWearable.WearableDeviceSession)
+  func session(_ session: BoseWearable.WearableDeviceSession, didFailToOpenWithError error: Swift.Error)
+  func session(_ session: BoseWearable.WearableDeviceSession, didCloseWithError error: Swift.Error)
+  func sessionDidClose(_ session: BoseWearable.WearableDeviceSession)
+}
+public protocol WearableDeviceSessionPairingDelegate : AnyObject {
+  func sessionRequiresPairingMode(_ session: BoseWearable.WearableDeviceSession)
+  func session(_ session: BoseWearable.WearableDeviceSession, finishedPairingWithResult result: BoseWearable.Result<Swift.Void>)
+}
+@frozen public enum WearableDeviceSessionState {
+  case closed
+  case opening
+  case open
+  public static func == (a: BoseWearable.WearableDeviceSessionState, b: BoseWearable.WearableDeviceSessionState) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+extension BoseWearable.ActiveNoiseReduction.Mode : Swift.Equatable {}
+extension BoseWearable.ActiveNoiseReduction.Mode : Swift.Hashable {}
+extension BoseWearable.ActiveNoiseReduction.Mode : Swift.RawRepresentable {}
+extension BoseWearable.AlertAction.Style : Swift.Equatable {}
+extension BoseWearable.AlertAction.Style : Swift.Hashable {}
+extension BoseWearable.AlertIcon : Swift.Equatable {}
+extension BoseWearable.AlertIcon : Swift.Hashable {}
+extension BoseWearable.BoseWearableLib.ConfigOption : Swift.Hashable {}
+extension BoseWearable.BoseWearableLib.ConfigOption : Swift.RawRepresentable {}
+extension BoseWearable.BoseWearableError.ErrorCode : Swift.Equatable {}
+extension BoseWearable.BoseWearableError.ErrorCode : Swift.Hashable {}
+extension BoseWearable.BoseWearableError.ErrorCode : Swift.RawRepresentable {}
+extension BoseWearable.DeviceProtocolErrorCode : Swift.Hashable {}
+extension BoseWearable.DeviceProtocolErrorCode : Swift.RawRepresentable {}
+extension BoseWearable.FirmwareUpdateApp : Swift.Equatable {}
+extension BoseWearable.FirmwareUpdateApp : Swift.Hashable {}
+extension BoseWearable.FocusMode : Swift.Equatable {}
+extension BoseWearable.FocusMode : Swift.Hashable {}
+extension BoseWearable.GestureType : Swift.Hashable {}
+extension BoseWearable.GestureType : Swift.RawRepresentable {}
+extension BoseWearable.SamplePeriod : Swift.Hashable {}
+extension BoseWearable.SamplePeriod : Swift.RawRepresentable {}
+extension BoseWearable.SensorType : Swift.Hashable {}
+extension BoseWearable.SensorType : Swift.RawRepresentable {}
+extension BoseWearable.SignalStrength : Swift.Hashable {}
+extension BoseWearable.SuspensionReason : Swift.Hashable {}
+extension BoseWearable.SuspensionReason : Swift.RawRepresentable {}
+extension BoseWearable.VectorAccuracy : Swift.Equatable {}
+extension BoseWearable.VectorAccuracy : Swift.Hashable {}
+extension BoseWearable.VectorAccuracy : Swift.RawRepresentable {}
+extension BoseWearable.WearableDeviceSessionState : Swift.Hashable {}

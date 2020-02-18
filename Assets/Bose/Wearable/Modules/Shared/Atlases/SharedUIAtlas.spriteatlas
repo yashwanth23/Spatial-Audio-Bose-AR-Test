@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SharedUIAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 1
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 2
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+    - serializedVersion: 2
+      m_BuildTarget: iPhone
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 4
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 8
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 3936eeb97fa00e54996c978edac672e0, type: 3}
+    totalSpriteSurfaceArea: 799235
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: b748ee82b23fc6c49a245bd61ead2922, type: 3}
+  - {fileID: 21300000, guid: e31e3d85c36e9ea42a95043362c0dfdd, type: 3}
+  - {fileID: 21300000, guid: 61a0a3b6cb5f64c72a9a8bd163095b29, type: 3}
+  - {fileID: 21300000, guid: 8a6788982b7b12c42b25fdebcdf68129, type: 3}
+  - {fileID: 21300000, guid: a6b06cd98a09945399a66e6870c3c5e4, type: 3}
+  - {fileID: 21300000, guid: e48190ca1332f2e41897779880920980, type: 3}
+  - {fileID: 21300000, guid: 779266fa4cc02b346a7fbdee71517158, type: 3}
+  - {fileID: 21300000, guid: 42c9bc2b71bd77e4ba1b080b9c1ce9c5, type: 3}
+  - {fileID: 21300000, guid: 4cd06d5b331a0174e8bfe4d050849fc0, type: 3}
+  - {fileID: 21300000, guid: 1fa9eabba4f55594ea572a3586c2dac8, type: 3}
+  - {fileID: 21300000, guid: 5df2fc6d91884f44cb8effb7e65322dd, type: 3}
+  - {fileID: 21300000, guid: 440187ed83e524d13bd279b3c76f4195, type: 3}
+  - {fileID: 21300000, guid: 0a72eeee4457b114c8136d639f0e23f6, type: 3}
+  - {fileID: 21300000, guid: 2db0c7fecedf65f47a64e8cb0dccb1b9, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - button_short_shadow
+  - scroll_fade
+  - info_circle_shadow
+  - info_icon_exclamation
+  - background_bar
+  - button_close
+  - white_border
+  - back_arrow
+  - white_flat
+  - button_short_fill
+  - info_circle
+  - loading_fade_white
+  - x
+  - scroll_gradient
+  m_Tag: SharedUIAtlas
+  m_IsVariant: 0
