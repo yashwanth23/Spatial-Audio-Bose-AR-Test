@@ -4802,7 +4802,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1278019035265578}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b84ab8ea5df964f108dfad049944661c, type: 3}
@@ -4810,7 +4810,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
-  Mute: 0
+  Mute: 1
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -19225,11 +19225,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c6701866305054c90bb4ab74b15a08b7, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8265f60739692734c82c3fc19aba424f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.33
+  m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -48079,11 +48079,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 951025460d89f426bb93ba0c3d212265, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8265f60739692734c82c3fc19aba424f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.33
+  m_Volume: 0.5
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -48342,9 +48342,9 @@ MonoBehaviour:
   _audioMiddle: {fileID: 82149022926610616}
   _audioFar: {fileID: 82858673964612512}
   _audioFill: {fileID: 82773739480923076}
-  _sfxSpawn: {fileID: 8300000, guid: fb1eb9b5ea61c482ba38ed006cedd82a, type: 3}
+  _sfxSpawn: {fileID: 0}
   _sfxLock: {fileID: 0}
-  _sfxCollect: {fileID: 8300000, guid: 9efef341553cb4acfb79c2997835b9c4, type: 3}
+  _sfxCollect: {fileID: 0}
   _news: []
   _farVolumeCurve:
     serializedVersion: 2
@@ -48606,6 +48606,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+  obj_isDestroyed: 0
 --- !u!114 &114366296839767168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48623,7 +48624,7 @@ MonoBehaviour:
   _chargeFillRate: 0.5
   _chargeEmptyRate: 0.1
   _animationIsChargingParameter: isCharging
-  _animationIsFullyChargedParameter: Destroy
+  _animationIsFullyChargedParameter: 
 --- !u!95 &95830693681130772
 Animator:
   serializedVersion: 3
@@ -48685,11 +48686,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2ad6984faf74043ad9287c800a998a22, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8265f60739692734c82c3fc19aba424f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.33
+  m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -53583,7 +53584,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1882762001651326}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b6f9b0e0c566c419f8795e97e7f6878c, type: 3}
@@ -53591,7 +53592,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
-  Mute: 0
+  Mute: 1
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
