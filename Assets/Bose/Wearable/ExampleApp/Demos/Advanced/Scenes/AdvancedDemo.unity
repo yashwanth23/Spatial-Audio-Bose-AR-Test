@@ -1455,6 +1455,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spatial_audio_delay: 40
+  spatial_duration: 5
+  p1: 39
+  p2: 74
+  p3: 82
+  d1: 4.3
+  d2: 5.5
+  d3: 6.9
   _targetPrefab: {fileID: 1783922763538594, guid: 5a8e01aa0f7064cb4a769bd7de40094e,
     type: 3}
   _targetPrefab1: {fileID: 1783922763538594, guid: 88976111f61ca1847ae27e0d50d14a9b,

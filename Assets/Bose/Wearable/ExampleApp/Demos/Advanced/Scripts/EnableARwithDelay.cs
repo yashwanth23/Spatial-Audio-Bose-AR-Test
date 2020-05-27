@@ -10,6 +10,9 @@ public class EnableARwithDelay : MonoBehaviour
 
     public string[] Audio_paths;
     private bool flag;
+
+
+
     // Start is called before the first frame update
     void Start()
     {

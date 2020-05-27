@@ -24,8 +24,25 @@ namespace Bose.Wearable.Examples
 
         private Vector3[] SPAWN_POINTS;
         private GameObject[] Ambient_Targets;
+        private GameObject Narrative_target;
         private bool flag = true;
         public float Spatial_audio_delay = 15.0f;
+
+        //Timing of audio transition points (From Narrative to Interactive spatial audio)
+        //public float p1, p2, p3, p4;
+
+
+        //Timer for Interactive audio spawning (Spatial audio) 
+        private float storyTimer;
+        private bool timerStart = false;
+        public float spatial_duration = 5.0f;
+
+        //Pause points for the main narrative
+        public int p1, p2, p3;
+
+        //Durations of the Interactive audio
+        public float d1, d2, d3;
+
 
         /// <summary>
         /// The prefab to spawn when creating a new target.
@@ -77,7 +94,6 @@ namespace Bose.Wearable.Examples
         private float _calibrationStartTime;
         private int _lastSpawnPointIndex;
         private Quaternion _referenceRotation;
-
 
 
         private void Awake()
@@ -176,6 +192,8 @@ namespace Bose.Wearable.Examples
 
             // TARGET 1 INSTANTIATED
             // Create a new target object at that point, parented to the controller.
+            // This is the main narrative target which is right in front of the user
+
             GameObject target1 = Instantiate(_targetPrefab, transform);
             target1.transform.position = SPAWN_POINTS[0] * 0.5f;
 
@@ -261,20 +279,13 @@ namespace Bose.Wearable.Examples
             // Pass on the reference rotation from calibration to the target controller.
             targetController6.ReferenceRotation = _referenceRotation;
 
-            Ambient_Targets = new GameObject[] { target2, target3, target4, target5, target6 };
-
-            for (int i = 0; i < Ambient_Targets.Length; i++)
+            Ambient_Targets = new GameObject[] { target1, target2, target3, target4, target5, target6 };
+            
+            for(int i = 1; i < Ambient_Targets.Length; i++)
             {
-                Transform[] ts = Ambient_Targets[i].transform.GetComponentsInChildren<Transform>(true);
-                foreach (Transform t in ts)
-                {
-                    if (t.gameObject.name == "SFX Loop Close" || t.gameObject.name == "SFX Loop Middle" || t.gameObject.name == "SFX Loop Far")
-                    {
-                        t.gameObject.GetComponent<AudioSource>().mute = true;
-                        Debug.Log("Child " + i + " is " + t.gameObject.name + " " + t.gameObject.activeSelf);
-                    }
-                }
+                Ambient_Targets[i].SetActive(false);
             }
+            
 
         }
 
@@ -290,9 +301,12 @@ namespace Bose.Wearable.Examples
 
         private void Update()
         {
+
             if (flag)
             {
-                StartCoroutine(WaitforIntro(Spatial_audio_delay));
+                //StartCoroutine(WaitforIntro(Spatial_audio_delay));
+                //StartCoroutine(TransitionTiming(p1, 1, 6));
+                //StartCoroutine(TransitionTiming(p2, 3, 6));
                 flag = false;
             }
 
@@ -322,30 +336,116 @@ namespace Bose.Wearable.Examples
 
                     // Spawn the first target after calibration completes.
                     Invoke("SpawnTarget", _spawnDelay);
+
+                    //Start timer as soon as you spawn the first target (Narrative target)
+                    timerStart = true;
                 }
+            }
+
+            if (timerStart)
+            {
+                storyTimer += Time.deltaTime;
+            }
+
+            //Debug.Log(storyTimer);
+
+            if(storyTimer >= p1 && storyTimer <= p1 + Time.deltaTime)
+            {
+                InteractiveAudio(true, 4);
+            }
+            else if(storyTimer >= p1 + d1 && storyTimer <= p1 + d1 + Time.deltaTime)
+            {
+                InteractiveAudio(false, 4);
+            }
+            else if(storyTimer >= p2 && storyTimer <= p2 + Time.deltaTime)
+            {
+                InteractiveAudio(true, 1);
+            }
+            else if (storyTimer >= p2 + d2 && storyTimer <= p2 + d2 + Time.deltaTime)
+            {
+                InteractiveAudio(false, 1);
+            }
+            else if(storyTimer >= p3 && storyTimer <= p3 + Time.deltaTime)
+            {
+                InteractiveAudio(true, 3);
+            }
+            else if (storyTimer >= p3 + d3 && storyTimer <= p3 +d3 + Time.deltaTime)
+            {
+                InteractiveAudio(false, 3);
             }
         }
-
-        IEnumerator WaitforIntro(float waitTime)
+        
+        IEnumerator TransitionTiming(float delay, int index, float duration)
         {
-            yield return new WaitForSeconds(waitTime);
-            for (int i = 0; i < Ambient_Targets.Length; i++)
+            while (true)
             {
-                Transform[] ts = Ambient_Targets[i].transform.GetComponentsInChildren<Transform>(true);
-                foreach (Transform t in ts)
+                yield return new WaitForSeconds(delay);
+
+                TransitionAudio(index, duration);
+                
+                yield return new WaitForEndOfFrame();
+            }
+
+
+        }
+
+        IEnumerator SpatialAudioDuration(int index, float duration)
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(duration);
+                MainAudioContinuation(index, duration);
+                
+                yield return new WaitForEndOfFrame();
+            }
+            
+        }
+
+        private void TransitionAudio(int index, float duration)
+        {
+            Ambient_Targets[index].SetActive(true);
+            Transform[] ts = Ambient_Targets[0].transform.GetComponentsInChildren<Transform>(true);
+            foreach (Transform t in ts)
+            {
+                if (t.gameObject.name == "SFX Loop Close" || t.gameObject.name == "SFX Loop Middle" || t.gameObject.name == "SFX Loop Far")
                 {
-                    if (t.gameObject.name == "SFX Loop Close" || t.gameObject.name == "SFX Loop Middle" || t.gameObject.name == "SFX Loop Far")
-                    {
-                        /*
-                        AudioClip clip = Resources.Load<AudioClip>(Audio_paths[i]);
-                        t.gameObject.GetComponent<AudioSource>().clip = clip;
-                        t.gameObject.GetComponent<AudioSource>().Play();
-                        */
-                        t.gameObject.GetComponent<AudioSource>().mute = false;
-                        Debug.Log("Deactivated Child " + i + " is " + t.gameObject.name + " " + t.gameObject.activeSelf);
-                    }
+
+                    t.gameObject.GetComponent<AudioSource>().Pause();
+                    //Debug.Log("Deactivated Child " + i + " is " + t.gameObject.name + " " + t.gameObject.activeSelf);
                 }
             }
+            Debug.Log("Spatial Target 1 Initiated");
+            StartCoroutine(SpatialAudioDuration(index, duration));
+        }
+
+        private void MainAudioContinuation(int index, float duration)
+        {
+            Ambient_Targets[index].SetActive(false);
+            Transform[] ts = Ambient_Targets[0].transform.GetComponentsInChildren<Transform>(true);
+            foreach (Transform t in ts)
+            {
+                if (t.gameObject.name == "SFX Loop Close" || t.gameObject.name == "SFX Loop Middle" || t.gameObject.name == "SFX Loop Far")
+                {
+
+                    t.gameObject.GetComponent<AudioSource>().Play();
+                    //Debug.Log("Deactivated Child " + i + " is " + t.gameObject.name + " " + t.gameObject.activeSelf);
+                }
+            }
+            Debug.Log("Spatial target 1 Collapsed");
+        }
+
+        private void InteractiveAudio(bool activate, int index)
+        {
+            if (activate)
+            {
+                Ambient_Targets[index].SetActive(true);
+            }
+            else
+            {
+                Ambient_Targets[index].SetActive(false);
+            }
+            
+
         }
     }
 }
