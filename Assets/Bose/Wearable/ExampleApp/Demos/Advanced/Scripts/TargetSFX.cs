@@ -147,7 +147,7 @@ namespace Bose.Wearable.Examples
             _news = new string[] { "NEWS_1", "NEWS_2", "NEWS_3" };
             obj_isDestroyed = TargetController.destroyed_obj;
 
-            _sfxLock = Resources.Load(_news[0]) as AudioClip;
+            //_sfxLock = Resources.Load(_news[0]) as AudioClip;
         }
 
 		private void Update()
@@ -212,28 +212,58 @@ namespace Bose.Wearable.Examples
 		/// <summary>
 		/// Plays a "target locked" effect
 		/// </summary>
-		public void PlayLockSting(bool flag)
+		public void PlayLockSting()
 		{
+            /*
             if(obj_isDestroyed == true)
             {
                 int i = Mathf.RoundToInt(Random.Range(0f, 2f));
                 _sfxLock = Resources.Load(_news[i]) as AudioClip;
-            }
+            }*/
+
+            //_sfxLock = Resources.Load(_news[i]) as AudioClip;
+            if(!_audioControl.isPlaying())
+                _audioControl.PlayOneShot(_sfxLock);
+            /*
             if (flag == true)
-                _audioControl.Play(_sfxLock);
+                
             else
             {
-                _audioControl.Stop(_sfxLock);
-                Debug.Log("Audio Stopped");
+                _audioControl.FadeOut(_audioControl.GetSource(), 1.0f);  
             }
-                
+            */
 
         }
 
-		/// <summary>
-		/// Plays a "target collected" string
-		/// </summary>
-		public void PlayCollectSting()
+        public void StopLockSting()
+        {
+            /*
+            if (obj_isDestroyed == true)
+            {
+                int i = Mathf.RoundToInt(Random.Range(0f, 2f));
+                _sfxLock = Resources.Load(_news[i]) as AudioClip;
+            }*/ 
+
+            if(_audioControl.isPlaying() == true)
+            {
+                _audioControl.Stop();
+            }
+               
+            /*
+            if (flag == true)
+                
+            else
+            {
+                _audioControl.FadeOut(_audioControl.GetSource(), 1.0f);  
+            }
+            */
+
+        }
+
+        /// <summary>
+        /// Plays a "target collected" string
+        /// </summary>
+        public void PlayCollectSting()
 		{
 			_audioControl.PlayOneShot(_sfxCollect);
 		}

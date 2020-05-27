@@ -129,7 +129,7 @@ namespace Bose.Wearable.Examples
                 destroyed_obj = false;
                 if (!_targetLocked)
 				{
-					_sfx.PlayLockSting(true);
+					_sfx.PlayLockSting();
 					_targetLocked = true;
 				}
 
@@ -144,8 +144,8 @@ namespace Bose.Wearable.Examples
 				_targetLocked = false;
 
 				_animator.SetBool(_animationIsChargingParameter, false);
-
-                _sfx.PlayLockSting(false);
+                
+                _sfx.StopLockSting();
 
                 
 
@@ -165,7 +165,7 @@ namespace Bose.Wearable.Examples
 				_animator.SetBool(_animationIsChargingParameter, false);
 
 				_sfx.PlayCollectSting();
-				_sfx.FadeOutAudio();
+				//_sfx.FadeOutAudio();
 			}
 
 			// Clamp the charge within [0, 1]
@@ -183,7 +183,8 @@ namespace Bose.Wearable.Examples
 		/// </summary>
 		public void Destroy()
 		{
-			UnityEngine.Object.Destroy(gameObject);
+			//UnityEngine.Object.Destroy(gameObject);
+            _sfx.StopLockSting();
 		}
 	}
 }

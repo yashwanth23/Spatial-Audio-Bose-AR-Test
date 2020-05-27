@@ -130,22 +130,36 @@ namespace Bose.Wearable
             var source = GetSource();
             source.clip = clip;
             source.Play();
+            Debug.Log("Audio Playing");
         }
 
-        public void Stop(AudioClip clip)
+        public bool isPlaying()
         {
             var source = GetSource();
-            source.clip = clip;
+            if (source.isPlaying)
+            {
+                Debug.Log("Music is stil playing");
+                return true;
+            }
+            else
+                return false;
+             
+        }
+
+        public void Stop()
+        {
+            var source = GetSource();
             source.Stop();
+            //Debug.Log("Audio stopped");
         }
         
         public void FadeOut(AudioSource source, float duration)
 		{
 			StartCoroutine(FadeOutInternal(source, duration));
 		}
+        
 
-  
-		private IEnumerator FadeOutInternal(AudioSource source, float duration)
+        private IEnumerator FadeOutInternal(AudioSource source, float duration)
 		{
 			// clamp the max duration to be no more than the remaining amount
 			// of the clip if we're not looping.
